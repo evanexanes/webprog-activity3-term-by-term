@@ -142,7 +142,9 @@ ul, ol { list-style: none; }
 }
 
 /* ---------------------------------------------------------------- header */
-.site-header { padding: 12px var(--gutter) 0; }
+/* Sticky at every width. The bar sits on a solid strip of the page colour so text never shows between
+   the bar and the screen edge, and it has no backdrop blur, which re-paints on every scroll frame. */
+.site-header { position: sticky; top: 0; z-index: 100; padding: 8px var(--gutter); background-color: var(--bone); }
 .header-inner {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
   gap: 0 16px;
@@ -150,7 +152,6 @@ ul, ol { list-style: none; }
   margin-inline: auto;
   padding: 4px 12px 4px 16px;
   background-color: var(--header-bg);
-  backdrop-filter: blur(10px);
   border: 1px solid var(--rule);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-float);
@@ -402,10 +403,12 @@ a.tile[aria-current] .tile-count { color: #FFFFFF; }
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-xs);
   min-width: 0;
-  transition: box-shadow var(--t-fast), border-color var(--t-fast);
+  transition: border-color var(--t-fast);
 }
 .card-body { display: grid; align-content: start; gap: 8px; padding: 20px; }
-.card:hover { box-shadow: var(--shadow-lift); border-color: var(--rule-strong); }
+/* Hover changes one border colour. A lift, an image zoom or an animated shadow repaints every card the
+   pointer passes while the page scrolls, and that is what made the Articles page stutter. */
+.card:hover { border-color: var(--denim-brand); }
 .card:focus-within { outline: 3px solid var(--denim-brand); outline-offset: 2px; }
 .card-meta {
   font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.04em; color: var(--clay);
@@ -621,28 +624,6 @@ a.tile[aria-current] .tile-count { color: #FFFFFF; }
 /* From the course map: the card a subject tile pointed at gets a ring (works with the keyboard). */
 .card:target { outline: 3px solid var(--denim-brand); outline-offset: 4px; }
 
-/* Motion, one purpose each. Cards lift so the whole card reads as one link; figures ease in so the
-   eye lands on them; the bar shows how far through an article you are. All of it stops when the
-   visitor asks for reduced motion, and the scroll-driven parts only run where the browser supports them. */
-@media (prefers-reduced-motion: no-preference) {
-  .card { transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease; }
-  .card:hover, .card:focus-within { transform: translateY(-3px); }
-  .card-cover img { transition: transform 300ms ease; }
-  .card:hover .card-cover img, .card:focus-within .card-cover img { transform: scale(1.04); }
-}
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .figure { animation: figure-in linear both; animation-timeline: view(); animation-range: entry 0% entry 45%; }
-    @keyframes figure-in { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
-    .article-layout::before {
-      content: ""; position: fixed; inset: 0 0 auto 0; z-index: 200; height: 3px;
-      background: var(--denim-brand); transform-origin: left center;
-      animation: read-progress linear both; animation-timeline: scroll(root);
-    }
-    @keyframes read-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-  }
-}
-
 /* ---------------------------------------------------------------- footer */
 .site-footer {
   background-color: #13161C; background-image: var(--grad-footer);
@@ -697,7 +678,6 @@ a.tile[aria-current] .tile-count { color: #FFFFFF; }
    60em and up: laptops and desktops
    =================================================================== */
 @media (min-width: 60em) {
-  .site-header { position: sticky; top: 0; z-index: 100; }
 
   /* Home hero: a 12-column grid, headline on 7 columns, course map on 5. */
   .hero {
