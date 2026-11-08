@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why my portfolio has two blues | Term by Term</title>
+<meta name="description" content="One blue is for fills and borders, the other can carry text. Contrast ratios decided which is which.">
+<link rel="icon" href="images/logo-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add("js")</script>
+<script src="menu.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the content</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="wordmark" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M13 8 L5 20 L13 32"/><path d="M19 9h14M19 20h10M19 31h14M19 9v22"/></svg>
+      <span class="wordmark-text"><span class="wordmark-name">Term by Term</span><span class="wordmark-sub">Notes from my BSIT classes</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="articles.html" aria-current="page">Articles</a>
+      <a href="about.html">About</a>
+      <a href="about.html#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-drawer" aria-label="Open menu">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+  </div>
+</header>
+<div class="drawer-shade" id="drawer-shade" hidden></div>
+<div class="site-drawer" id="site-drawer" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <div class="drawer-top">
+    <a class="wordmark drawer-wordmark" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M13 8 L5 20 L13 32"/><path d="M19 9h14M19 20h10M19 31h14M19 9v22"/></svg>
+      <span class="wordmark-text"><span class="wordmark-name">Term by Term</span><span class="wordmark-sub">Notes from my BSIT classes</span></span>
+    </a>
+    <button class="drawer-close" type="button" aria-label="Close menu" data-drawer-close>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <nav class="drawer-nav" aria-label="Main">
+    <a href="index.html">Home</a>
+    <a href="articles.html" aria-current="page">Articles</a>
+    <a href="about.html">About</a>
+    <a href="about.html#contact">Contact</a>
+  </nav>
+</div>
+<main id="main">
+<div class="container">
+  <div class="article-layout">
+    <header class="article-head">
+      <a class="crumb" href="articles.html">All articles</a>
+      <h1 class="article-title">Why my portfolio has two blues</h1>
+      <p class="article-meta">USERDES &middot; Year 2, Term 1 &middot; 2 min read</p>
+      <p class="article-source">Based on: USERDES Portfolio Redesign, published 2026-09-28</p>
+    </header>
+    <div class="article-cover"><img src="images/cover-why-my-portfolio-has-two-blues-800.webp" srcset="images/cover-why-my-portfolio-has-two-blues-400.webp 400w, images/cover-why-my-portfolio-has-two-blues-800.webp 800w" sizes="(min-width: 60em) 44rem, 100vw" width="800" height="500" alt="Screenshot of my live portfolio in a browser window" decoding="async"></div>
+    <article class="article-body prose">
+<p>My portfolio&#x27;s CSS declares two blues that look almost the same. They exist because of one measurement: contrast against the cream page background.</p>
+<table class="data-table"><caption class="visually-hidden">Colour tokens and their contrast on the cream background</caption><thead><tr><th scope="col">Token</th><th scope="col">Colour</th><th scope="col">Contrast on cream</th><th scope="col">Use</th></tr></thead><tbody><tr><td data-label="Token">denim-brand</td><td data-label="Colour">#4A70A9</td><td data-label="Contrast on cream">4.25:1</td><td data-label="Use">Large type, fills, borders and focus rings. Never body text.</td></tr><tr><td data-label="Token">denim</td><td data-label="Colour">#3B5F99</td><td data-label="Contrast on cream">5.42:1</td><td data-label="Use">Links and small text.</td></tr><tr><td data-label="Token">soft-blue</td><td data-label="Colour">#8FABD4</td><td data-label="Contrast on cream">1.99:1</td><td data-label="Use">Fills only, behind dark text.</td></tr><tr><td data-label="Token">clay</td><td data-label="Colour">#9C4526</td><td data-label="Contrast on cream">5.40:1</td><td data-label="Use">Labels and evidence.</td></tr><tr><td data-label="Token">ink</td><td data-label="Colour">#13161C</td><td data-label="Contrast on cream">15.34:1</td><td data-label="Use">Body text.</td></tr><tr><td data-label="Token">border-ui</td><td data-label="Colour">#827D70</td><td data-label="Contrast on cream">3.47:1</td><td data-label="Use">Outlines of buttons and inputs.</td></tr></tbody></table>
+<figure class="figure"><img src="images/fig-why-my-portfolio-has-two-blues-1-1100.webp" srcset="images/fig-why-my-portfolio-has-two-blues-1-720.webp 720w, images/fig-why-my-portfolio-has-two-blues-1-1100.webp 1100w" sizes="(min-width: 60em) 44rem, 100vw" width="1100" height="688" alt="Two cards: the structural blue 4A70A9 at 4.25 to 1 and the text blue 3B5F99 at 5.42 to 1 on the cream page background" loading="lazy" decoding="async"><figcaption>The two blues on the cream canvas. The ratios are the ones this site&#x27;s own check script recomputes.</figcaption></figure>
+<h2>The rule behind the table</h2>
+<p>Normal text needs 4.5:1. Large text, borders and focus rings need 3:1. The brand blue clears 3:1 but not 4.5:1, so it cannot colour a paragraph link. Darkening it by one step gives a blue that passes 4.5:1 and still reads as the same colour.</p>
+<p>Control boundaries get their own token, because a button&#x27;s outline has to reach 3:1 too. Decorative hairlines are exempt. They carry no information, so they stay light.</p>
+<h2>The dark theme</h2>
+<p>The dark theme remaps the same token names to new values and leaves the brand blue unchanged. The link blue becomes the soft blue, which measures 7.79:1 on the dark background.</p>
+<h2>Checking, not guessing</h2>
+<p>I did not trust the ratios in my own CSS comments. Before publishing this page I recomputed them from the hex values, and they match what the stylesheet says.</p>
+<h2>Shipping in passes</h2>
+<p>I finished the site in numbered passes, each behind a scripted check and a status sweep, so the page structure my classmates had tested did not change underneath me.</p>
+<aside class="note"><p class="note-title">Where it shows up</p><p>This blog uses the same tokens, so every colour pair here was already checked.</p></aside>
+    </article>
+    <nav class="article-pager" aria-label="More articles"><div class="pager"><a class="pager-link" href="answer-key-before-the-bot.html"><span class="pager-dir">Newer article</span><span class="pager-title">Compute the answer key before you build the bot</span></a><a class="pager-link" href="normalising-made-my-data-worse.html"><span class="pager-dir">Older article</span><span class="pager-title">Normalising to 1NF made my data worse before 4NF fixed it</span></a></div></nav>
+    <aside class="map" aria-labelledby="map-title-article">
+  <h2 class="map-title" id="map-title-article">Course map</h2>
+  <p class="map-lede">Filled subjects link to an article. Empty ones are still to come.</p>
+  <ol class="terms"><li class="term is-current"><h3 class="term-name"><span>Year 2, Term 2</span><span class="term-state">current term</span></h3><ul class="tiles"><li><a class="tile" href="articles.html#subject-webprog"><span>WEBPROG</span><span class="tile-count">2 articles</span></a></li><li><a class="tile" href="articles.html#subject-mobprog"><span>MOBPROG</span><span class="tile-count">1 article</span></a></li><li><a class="tile" href="articles.html#subject-datama2"><span>DATAMA2</span><span class="tile-count">1 article</span></a></li><li><span class="tile">PEMBEDS</span></li><li><a class="tile" href="articles.html#subject-anlytc1"><span>ANLYTC1</span><span class="tile-count">1 article</span></a></li><li><span class="tile">CLDCOMP</span></li><li><span class="tile">PEDUTRI</span></li></ul></li><li class="term"><h3 class="term-name"><span>Year 2, Term 1</span></h3><ul class="tiles"><li><a class="tile" href="articles.html#subject-userdes" aria-current="true"><span>USERDES</span><span class="tile-count">2 articles</span></a></li><li><a class="tile" href="articles.html#subject-discret"><span>DISCRET</span><span class="tile-count">1 article</span></a></li><li><a class="tile" href="articles.html#subject-datama1"><span>DATAMA1</span><span class="tile-count">1 article</span></a></li><li><span class="tile">QUAMET1</span></li><li><a class="tile" href="articles.html#subject-rpasyst"><span>RPASYST</span><span class="tile-count">1 article</span></a></li><li><span class="tile">INFOSEC</span></li><li><span class="tile">PEDTWO</span></li></ul></li></ol>
+  <p class="map-more"><a href="about.html#program-title">See the whole program</a></p>
+</aside>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-columns">
+      <div>
+        <a class="footer-brand" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M13 8 L5 20 L13 32"/><path d="M19 9h14M19 20h10M19 31h14M19 9v22"/></svg><span>Term by Term</span></a>
+        <p class="footer-blurb">Notes from the BSIT program at Asia Pacific College. Every article starts from work I handed in.</p>
+      </div>
+      <div>
+        <h2 class="footer-heading">Pages</h2>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="articles.html">Articles</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-heading">Contact</h2>
+        <ul class="footer-links">
+          <li><a href="mailto:epexanes@student.apc.edu.ph">epexanes@student.apc.edu.ph</a></li>
+          <li><a href="https://github.com/evanexanes">GitHub: evanexanes</a></li>
+          <li><a href="https://evanexanes.github.io/">Portfolio: evanexanes.github.io</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-base">Hand-coded HTML and CSS, plus one small script for the phone menu, for WEBPROG Activity 3. &copy; 2026 Evan Exanes.</p>
+  </div>
+</footer>
+</body>
+</html>

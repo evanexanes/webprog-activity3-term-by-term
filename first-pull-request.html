@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My first pull request, and the branch I left unmerged | Term by Term</title>
+<meta name="description" content="A poem repository with three commits, two branches and one pull request showed me what a merge changes.">
+<link rel="icon" href="images/logo-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add("js")</script>
+<script src="menu.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the content</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="wordmark" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M13 8 L5 20 L13 32"/><path d="M19 9h14M19 20h10M19 31h14M19 9v22"/></svg>
+      <span class="wordmark-text"><span class="wordmark-name">Term by Term</span><span class="wordmark-sub">Notes from my BSIT classes</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="articles.html" aria-current="page">Articles</a>
+      <a href="about.html">About</a>
+      <a href="about.html#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-drawer" aria-label="Open menu">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+  </div>
+</header>
+<div class="drawer-shade" id="drawer-shade" hidden></div>
+<div class="site-drawer" id="site-drawer" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <div class="drawer-top">
+    <a class="wordmark drawer-wordmark" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M13 8 L5 20 L13 32"/><path d="M19 9h14M19 20h10M19 31h14M19 9v22"/></svg>
+      <span class="wordmark-text"><span class="wordmark-name">Term by Term</span><span class="wordmark-sub">Notes from my BSIT classes</span></span>
+    </a>
+    <button class="drawer-close" type="button" aria-label="Close menu" data-drawer-close>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <nav class="drawer-nav" aria-label="Main">
+    <a href="index.html">Home</a>
+    <a href="articles.html" aria-current="page">Articles</a>
+    <a href="about.html">About</a>
+    <a href="about.html#contact">Contact</a>
+  </nav>
+</div>
+<main id="main">
+<div class="container">
+  <div class="article-layout">
+    <header class="article-head">
+      <a class="crumb" href="articles.html">All articles</a>
+      <h1 class="article-title">My first pull request, and the branch I left unmerged</h1>
+      <p class="article-meta">MOBPROG &middot; Year 2, Term 2 &middot; 2 min read</p>
+      <p class="article-source">Based on: MOBPROG 1.1 Introduction and 1.2 Branches, Git and GitHub for Poets, submitted 2026-11-06</p>
+    </header>
+    <div class="article-cover"><img src="images/cover-first-pull-request-800.webp" srcset="images/cover-first-pull-request-400.webp 400w, images/cover-first-pull-request-800.webp 800w" sizes="(min-width: 60em) 44rem, 100vw" width="800" height="500" alt="My GitHub Branches page for the My-Poem repository: main, third-stanza with pull request #1, and alternate-ending" decoding="async"></div>
+    <article class="article-body prose">
+<p>The Git and GitHub for Poets tutorials ask you to make a repository and then branches, using a poem as the content. I created a public repository named <code>My-Poem</code> and made three commits on <code>main</code>.</p>
+<figure class="figure"><img src="images/fig-first-pull-request-1-1280.webp" srcset="images/fig-first-pull-request-1-720.webp 720w, images/fig-first-pull-request-1-1280.webp 1280w" sizes="(min-width: 60em) 44rem, 100vw" width="1280" height="560" alt="My GitHub commit list for the My-Poem repository: Initial commit, Add first draft of the poem, and Add second stanza to the poem" loading="lazy" decoding="async"><figcaption>The three commits on main, from my My-Poem repository.</figcaption></figure>
+<h2>Two branches, two outcomes</h2>
+<p>I made a branch called <code>third-stanza</code>, wrote the new stanza there and opened pull request #1 on GitHub. Merging it brought the stanza into <code>main</code>. I made a second branch, <code>alternate-ending</code>, and never merged it. After that I edited <code>main</code> again, so the repository now holds one ending that was accepted and another that is still waiting.</p>
+<p>Seeing both on the branches page made the idea concrete: a branch is a separate line of edits, and a merge is the decision to bring one of those lines back.</p>
+<h2>What I handed in</h2>
+<p>Each tutorial ended in a one-page PDF with the repository link. For 1.1 the evidence was a screenshot of the commits, and for 1.2 a screenshot of the branches. A pull request is where a change is discussed before it is merged. With only me in the repository there was nobody to review it, but the page still records what was merged and when.</p>
+<h2>Getting signed in</h2>
+<p>My SSH key was not on my GitHub account. The command <code>gh auth login -h github.com -p https -w</code> signs in over HTTPS through the browser, and that was enough to push.</p>
+<h2>Checks before submitting</h2>
+<p>A public repository can be opened by anyone, including the instructor. Before the first push I checked the tracked files for tokens and <code>.env</code> files. After it, I opened the repository while logged out to confirm it loads without a login.</p>
+<aside class="note"><p class="note-title">Takeaway</p><p>A public repository is part of what gets graded, so I treat it like a deliverable: check what is tracked, then open it logged out.</p></aside>
+    </article>
+    <nav class="article-pager" aria-label="More articles"><div class="pager"><a class="pager-link" href="flexbox-recipes-i-kept-reusing.html"><span class="pager-dir">Newer article</span><span class="pager-title">Four Flexbox recipes I kept reusing</span></a><a class="pager-link" href="a-payment-means-exactly-one.html"><span class="pager-dir">Older article</span><span class="pager-title">In my ERD, &quot;a PAYMENT&quot; meant exactly one</span></a></div></nav>
+    <aside class="map" aria-labelledby="map-title-article">
+  <h2 class="map-title" id="map-title-article">Course map</h2>
+  <p class="map-lede">Filled subjects link to an article. Empty ones are still to come.</p>
+  <ol class="terms"><li class="term is-current"><h3 class="term-name"><span>Year 2, Term 2</span><span class="term-state">current term</span></h3><ul class="tiles"><li><a class="tile" href="articles.html#subject-webprog"><span>WEBPROG</span><span class="tile-count">2 articles</span></a></li><li><a class="tile" href="articles.html#subject-mobprog" aria-current="true"><span>MOBPROG</span><span class="tile-count">1 article</span></a></li><li><a class="tile" href="articles.html#subject-datama2"><span>DATAMA2</span><span class="tile-count">1 article</span></a></li><li><span class="tile">PEMBEDS</span></li><li><a class="tile" href="articles.html#subject-anlytc1"><span>ANLYTC1</span><span class="tile-count">1 article</span></a></li><li><span class="tile">CLDCOMP</span></li><li><span class="tile">PEDUTRI</span></li></ul></li><li class="term"><h3 class="term-name"><span>Year 2, Term 1</span></h3><ul class="tiles"><li><a class="tile" href="articles.html#subject-userdes"><span>USERDES</span><span class="tile-count">2 articles</span></a></li><li><a class="tile" href="articles.html#subject-discret"><span>DISCRET</span><span class="tile-count">1 article</span></a></li><li><a class="tile" href="articles.html#subject-datama1"><span>DATAMA1</span><span class="tile-count">1 article</span></a></li><li><span class="tile">QUAMET1</span></li><li><a class="tile" href="articles.html#subject-rpasyst"><span>RPASYST</span><span class="tile-count">1 article</span></a></li><li><span class="tile">INFOSEC</span></li><li><span class="tile">PEDTWO</span></li></ul></li></ol>
+  <p class="map-more"><a href="about.html#program-title">See the whole program</a></p>
+</aside>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-columns">
+      <div>
+        <a class="footer-brand" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M13 8 L5 20 L13 32"/><path d="M19 9h14M19 20h10M19 31h14M19 9v22"/></svg><span>Term by Term</span></a>
+        <p class="footer-blurb">Notes from the BSIT program at Asia Pacific College. Every article starts from work I handed in.</p>
+      </div>
+      <div>
+        <h2 class="footer-heading">Pages</h2>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="articles.html">Articles</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-heading">Contact</h2>
+        <ul class="footer-links">
+          <li><a href="mailto:epexanes@student.apc.edu.ph">epexanes@student.apc.edu.ph</a></li>
+          <li><a href="https://github.com/evanexanes">GitHub: evanexanes</a></li>
+          <li><a href="https://evanexanes.github.io/">Portfolio: evanexanes.github.io</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-base">Hand-coded HTML and CSS, plus one small script for the phone menu, for WEBPROG Activity 3. &copy; 2026 Evan Exanes.</p>
+  </div>
+</footer>
+</body>
+</html>

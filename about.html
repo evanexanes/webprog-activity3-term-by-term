@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About | Term by Term</title>
+<meta name="description" content="Who writes Term by Term, what every article is based on, and how to reach Evan.">
+<link rel="icon" href="images/logo-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add("js")</script>
+<script src="menu.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the content</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="wordmark" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M13 8 L5 20 L13 32"/><path d="M19 9h14M19 20h10M19 31h14M19 9v22"/></svg>
+      <span class="wordmark-text"><span class="wordmark-name">Term by Term</span><span class="wordmark-sub">Notes from my BSIT classes</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="articles.html">Articles</a>
+      <a href="about.html" aria-current="page">About</a>
+      <a href="about.html#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-drawer" aria-label="Open menu">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+  </div>
+</header>
+<div class="drawer-shade" id="drawer-shade" hidden></div>
+<div class="site-drawer" id="site-drawer" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <div class="drawer-top">
+    <a class="wordmark drawer-wordmark" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M13 8 L5 20 L13 32"/><path d="M19 9h14M19 20h10M19 31h14M19 9v22"/></svg>
+      <span class="wordmark-text"><span class="wordmark-name">Term by Term</span><span class="wordmark-sub">Notes from my BSIT classes</span></span>
+    </a>
+    <button class="drawer-close" type="button" aria-label="Close menu" data-drawer-close>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <nav class="drawer-nav" aria-label="Main">
+    <a href="index.html">Home</a>
+    <a href="articles.html">Articles</a>
+    <a href="about.html" aria-current="page">About</a>
+    <a href="about.html#contact">Contact</a>
+  </nav>
+</div>
+<main id="main">
+<div class="container">
+  <div class="about-grid">
+    <div class="about-copy">
+      <h1 class="page-title">About this blog</h1>
+      <p><strong>Term by Term</strong> is written by Evan Exanes, a second-year BSIT student at Asia Pacific College, section IT252, graduating in 2029.</p>
+      <p>Every article starts from work I handed in: an activity, a problem set or an exam project. The line under each title names that work and the date. When I do not know something yet, such as the instructor's feedback, the article says so instead of guessing.</p>
+      <h2>What you will not find here</h2>
+      <p>No grades and no instructors' names. The articles describe what I did and what I noticed, not the marks.</p>
+      <h2>Why it exists</h2>
+      <p>This site is my submission for WEBPROG Activity 3, CSS Grid and Mobile. It is also a second piece for my portfolio, and the first one I have written entirely about my own classes.</p>
+    </div>
+    <div class="about-side">
+      <img class="portrait" src="images/evan-exanes-portrait-640.webp" srcset="images/evan-exanes-portrait-320.webp 320w, images/evan-exanes-portrait-640.webp 640w" sizes="(min-width: 60em) 23rem, min(20rem, calc(100vw - 32px))" width="640" height="800" decoding="async" alt="Portrait of Evan Exanes, smiling, in a dark blazer and white shirt">
+      <div class="contact-card" id="contact">
+        <h2>Contact</h2>
+        <div class="contact-row"><span class="contact-label">School email</span><a href="mailto:epexanes@student.apc.edu.ph">epexanes@student.apc.edu.ph</a></div>
+        <div class="contact-row"><span class="contact-label">GitHub</span><a href="https://github.com/evanexanes">github.com/evanexanes</a></div>
+        <div class="contact-row"><span class="contact-label">Portfolio</span><a href="https://evanexanes.github.io/">evanexanes.github.io</a></div>
+      </div>
+      <div class="about-art"><img src="images/about-art-960.webp" srcset="images/about-art-480.webp 480w, images/about-art-960.webp 960w" sizes="(min-width: 60em) 23rem, min(30rem, calc(100vw - 32px))" width="960" height="600" alt="Three pieces of my coursework overlapping on a blue panel: the DATAMA2 diagram, the DATAMA1 schema and my portfolio" loading="lazy" decoding="async"></div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <section class="full-map" aria-labelledby="program-title">
+    <div class="section-head">
+      <h2 class="section-title" id="program-title">The program so far</h2>
+      <p class="section-note">All four years of the BSIT curriculum. Filled subjects link to an article. A line under a subject says what I made in it. Plain ones have nothing written yet, and dashed terms have not started.</p>
+    </div>
+    <div class="year-grid"><details class="year-block"><summary><h3 class="year-title" id="year-1">Year 1 <span class="year-note">done</span></h3><span class="year-tally">18 subjects, 6 with a note on what I made</span></summary><ol class="year-terms"><li class="term"><h4 class="term-name"><span>Term 1</span></h4><ul class="tiles"><li><span class="tile"><span>SCITECS</span><span class="tile-name">Science, Technology, and Society</span></span></li><li><span class="tile"><span>UNDSELF</span><span class="tile-name">Understanding the Self</span></span></li><li><span class="tile"><span>INTCOMC</span><span class="tile-name">Introduction to Computing</span></span></li><li><span class="tile"><span>PROGCON</span><span class="tile-name">Programming Concepts</span></span></li><li class="has-note"><div class="tile tile--note"><span>COMPORG</span><span class="tile-name">Computer Architecture and Organization</span><span class="tile-note">A festive LED matrix in Tinkercad Circuits, built with a team. A four-input Boolean expression decides which LEDs light, checked against a truth table.</span></div></li><li><span class="tile"><span>NATSER1</span><span class="tile-name">National Service Training Program 1</span></span></li></ul></li><li class="term"><h4 class="term-name"><span>Term 2</span></h4><ul class="tiles"><li><span class="tile"><span>CONWORL</span><span class="tile-name">The Contemporary World</span></span></li><li><span class="tile"><span>PURPCOM</span><span class="tile-name">Purposive Communication</span></span></li><li class="has-note"><div class="tile tile--note"><span>INPROLA</span><span class="tile-name">Intermediate Programming Language</span><span class="tile-note">NCTN Bank, a Java desktop app built on JOptionPane dialogs. An account locks after three wrong passwords, and each account keeps its own transaction history.</span></div></li><li><span class="tile"><span>MANPRIN</span><span class="tile-name">Management Principles</span></span></li><li class="has-note"><div class="tile tile--note"><span>OPESYST</span><span class="tile-name">Operating Systems</span><span class="tile-note">Set up Fedora 43 with Apache, MariaDB and PHP, created three user accounts, and practised dnf, systemctl, chmod and chown.</span></div></li><li><span class="tile"><span>NATSER2</span><span class="tile-name">National Service Training Program 2</span></span></li></ul></li><li class="term"><h4 class="term-name"><span>Term 3</span></h4><ul class="tiles"><li><span class="tile"><span>ARTAPRE</span><span class="tile-name">Art Appreciation</span></span></li><li class="has-note"><div class="tile tile--note"><span>DASTRUC</span><span class="tile-name">Data Structures and Algorithms</span><span class="tile-note">MotoPulse, a Python command-line motorcycle maintenance tracker. A min-heap ranks overdue jobs by an urgency score, and a stack powers undo.</span></div></li><li class="has-note"><div class="tile tile--note"><span>BUSPROS</span><span class="tile-name">Business Processes</span><span class="tile-note">A business process specification for RevTech: marketing to contract to go-live to client feedback, drawn as swimlanes across Operations, HR, Finance and Admin.</span></div></li><li><span class="tile"><span>MATWORL</span><span class="tile-name">Mathematics in the Modern World</span></span></li><li class="has-note"><div class="tile tile--note"><span>DNETCOM</span><span class="tile-name">Data Networks and Communications</span><span class="tile-note">Packet Tracer labs for static routing, RIP and dynamic routing, plus a comparison of static, RIP, EIGRP and OSPF by metric and convergence speed.</span></div></li><li><span class="tile"><span>PEDUONE</span><span class="tile-name">Physical Education 1</span></span></li></ul></li></ol></details><details class="year-block" open><summary><h3 class="year-title" id="year-2">Year 2 <span class="year-note">in progress</span></h3><span class="year-tally">19 subjects, 8 with an article, 2 with a note on what I made</span></summary><ol class="year-terms"><li class="term"><h4 class="term-name"><span>Term 1</span></h4><ul class="tiles"><li><a class="tile" href="articles.html#subject-userdes"><span>USERDES</span><span class="tile-name">UI/UX Design and Programming</span><span class="tile-count">2 articles</span></a></li><li><a class="tile" href="articles.html#subject-discret"><span>DISCRET</span><span class="tile-name">Discrete Mathematics</span><span class="tile-count">1 article</span></a></li><li><a class="tile" href="articles.html#subject-datama1"><span>DATAMA1</span><span class="tile-name">Database Management 1</span><span class="tile-count">1 article</span></a></li><li class="has-note"><div class="tile tile--note"><span>QUAMET1</span><span class="tile-name">Probability and Statistics</span><span class="tile-note">Six modules, from sampling and data presentation to the normal distribution and hypothesis tests (z-test and t-test).</span></div></li><li><a class="tile" href="articles.html#subject-rpasyst"><span>RPASYST</span><span class="tile-name">Robotic Process Automation Systems</span><span class="tile-count">1 article</span></a></li><li class="has-note"><div class="tile tile--note"><span>INFOSEC</span><span class="tile-name">Information Systems Security</span><span class="tile-note">Hands-on labs: brute-forcing a login form with THC Hydra, testing CSRF with Burp Suite, scanning with Greenbone, and encrypting files with GPG.</span></div></li><li><span class="tile"><span>PEDTWO</span><span class="tile-name">Physical Education 2</span></span></li></ul></li><li class="term is-current"><h4 class="term-name"><span>Term 2</span><span class="term-state">current term</span></h4><ul class="tiles"><li><a class="tile" href="articles.html#subject-webprog"><span>WEBPROG</span><span class="tile-name">Web Programming</span><span class="tile-count">2 articles</span></a></li><li><a class="tile" href="articles.html#subject-mobprog"><span>MOBPROG</span><span class="tile-name">Mobile Programming</span><span class="tile-count">1 article</span></a></li><li><a class="tile" href="articles.html#subject-datama2"><span>DATAMA2</span><span class="tile-name">Database Management 2</span><span class="tile-count">1 article</span></a></li><li><span class="tile"><span>PEMBEDS</span><span class="tile-name">Programmable Embedded Systems</span></span></li><li><a class="tile" href="articles.html#subject-anlytc1"><span>ANLYTC1</span><span class="tile-name">Analytics 1</span><span class="tile-count">1 article</span></a></li><li><span class="tile"><span>CLDCOMP</span><span class="tile-name">Cloud Computing</span></span></li><li><span class="tile"><span>PEDUTRI</span><span class="tile-name">Physical Education 3</span></span></li></ul></li><li class="term is-ahead"><h4 class="term-name"><span>Term 3</span><span class="term-state">ahead</span></h4><ul class="tiles"><li><span class="tile"><span>GETHICS</span><span class="tile-name">General Ethics</span></span></li><li><span class="tile"><span>EXCOMP1</span><span class="tile-name">Executive Competency 1</span></span></li><li><span class="tile"><span>MNTSDEV</span><span class="tile-name">Maintenance and Systems Development</span></span></li><li><span class="tile"><span>ELECTV2</span><span class="tile-name">Elective 2</span></span></li><li><span class="tile"><span>PEDUFOR</span><span class="tile-name">Physical Education 4</span></span></li></ul></li></ol></details><details class="year-block"><summary><h3 class="year-title" id="year-3">Year 3 <span class="year-note">ahead</span></h3><span class="year-tally">12 subjects, not started</span></summary><ol class="year-terms"><li class="term is-ahead"><h4 class="term-name"><span>Term 1</span><span class="term-state">ahead</span></h4><ul class="tiles"><li><span class="tile"><span>PHILHIS</span><span class="tile-name">Philippine History</span></span></li><li><span class="tile"><span>MSYADD1</span><span class="tile-name">Methods of Systems Analysis and Design 1</span></span></li><li><span class="tile"><span>ELECTV3</span><span class="tile-name">Elective 3</span></span></li><li><span class="tile"><span>ICTSRV1</span><span class="tile-name">ICT Services 1</span></span></li></ul></li><li class="term is-ahead"><h4 class="term-name"><span>Term 2</span><span class="term-state">ahead</span></h4><ul class="tiles"><li><span class="tile"><span>RIZLIFE</span><span class="tile-name">Life and Works of Rizal</span></span></li><li><span class="tile"><span>MCSPROJ</span><span class="tile-name">Capstone Project / Systems Project 1</span></span></li><li><span class="tile"><span>TENTREP</span><span class="tile-name">Technology Entrepreneurship</span></span></li><li><span class="tile"><span>ELECTV4</span><span class="tile-name">Elective 4</span></span></li></ul></li><li class="term is-ahead"><h4 class="term-name"><span>Term 3</span><span class="term-state">ahead</span></h4><ul class="tiles"><li><span class="tile"><span>EXCOMP2</span><span class="tile-name">Executive Competency 2</span></span></li><li><span class="tile"><span>PROJMAN</span><span class="tile-name">IT Project Management</span></span></li><li><span class="tile"><span>MNSYSIT</span><span class="tile-name">Managing IT Systems</span></span></li><li><span class="tile"><span>ITLAWS</span><span class="tile-name">Information Technology Laws and Ethics</span></span></li></ul></li></ol></details><details class="year-block"><summary><h3 class="year-title" id="year-4">Year 4 <span class="year-note">ahead</span></h3><span class="year-tally">6 subjects, not started</span></summary><ol class="year-terms"><li class="term is-ahead"><h4 class="term-name"><span>Term 1</span><span class="term-state">ahead</span></h4><ul class="tiles"><li><span class="tile"><span>PROFETH</span><span class="tile-name">Professional Ethics</span></span></li><li><span class="tile"><span>SOFTDEV</span><span class="tile-name">Software Development Track</span></span></li><li><span class="tile"><span>QUALITY</span><span class="tile-name">Quality Assurance and Software Testing</span></span></li><li><span class="tile"><span>ELECLAN</span><span class="tile-name">Elective Language / Advanced Track</span></span></li></ul></li><li class="term is-ahead"><h4 class="term-name"><span>Term 2</span><span class="term-state">ahead</span></h4><ul class="tiles"><li><span class="tile"><span>INTERN1</span><span class="tile-name">Internship / Practicum 1</span></span></li></ul></li><li class="term is-ahead"><h4 class="term-name"><span>Term 3</span><span class="term-state">ahead</span></h4><ul class="tiles"><li><span class="tile"><span>INTERN2</span><span class="tile-name">Internship / Practicum 2</span></span></li></ul></li></ol></details></div>
+  </section>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-columns">
+      <div>
+        <a class="footer-brand" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M13 8 L5 20 L13 32"/><path d="M19 9h14M19 20h10M19 31h14M19 9v22"/></svg><span>Term by Term</span></a>
+        <p class="footer-blurb">Notes from the BSIT program at Asia Pacific College. Every article starts from work I handed in.</p>
+      </div>
+      <div>
+        <h2 class="footer-heading">Pages</h2>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="articles.html">Articles</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-heading">Contact</h2>
+        <ul class="footer-links">
+          <li><a href="mailto:epexanes@student.apc.edu.ph">epexanes@student.apc.edu.ph</a></li>
+          <li><a href="https://github.com/evanexanes">GitHub: evanexanes</a></li>
+          <li><a href="https://evanexanes.github.io/">Portfolio: evanexanes.github.io</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-base">Hand-coded HTML and CSS, plus one small script for the phone menu, for WEBPROG Activity 3. &copy; 2026 Evan Exanes.</p>
+  </div>
+</footer>
+</body>
+</html>

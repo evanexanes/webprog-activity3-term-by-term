@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Five builds to get a profile page that looked like mine | Term by Term</title>
+<meta name="description" content="Matching my portfolio&#x27;s colours was not enough. The page only worked once I rebuilt it from the portfolio&#x27;s own CSS.">
+<link rel="icon" href="images/logo-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add("js")</script>
+<script src="menu.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the content</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="wordmark" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M13 8 L5 20 L13 32"/><path d="M19 9h14M19 20h10M19 31h14M19 9v22"/></svg>
+      <span class="wordmark-text"><span class="wordmark-name">Term by Term</span><span class="wordmark-sub">Notes from my BSIT classes</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="articles.html" aria-current="page">Articles</a>
+      <a href="about.html">About</a>
+      <a href="about.html#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-drawer" aria-label="Open menu">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+  </div>
+</header>
+<div class="drawer-shade" id="drawer-shade" hidden></div>
+<div class="site-drawer" id="site-drawer" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <div class="drawer-top">
+    <a class="wordmark drawer-wordmark" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M13 8 L5 20 L13 32"/><path d="M19 9h14M19 20h10M19 31h14M19 9v22"/></svg>
+      <span class="wordmark-text"><span class="wordmark-name">Term by Term</span><span class="wordmark-sub">Notes from my BSIT classes</span></span>
+    </a>
+    <button class="drawer-close" type="button" aria-label="Close menu" data-drawer-close>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <nav class="drawer-nav" aria-label="Main">
+    <a href="index.html">Home</a>
+    <a href="articles.html" aria-current="page">Articles</a>
+    <a href="about.html">About</a>
+    <a href="about.html#contact">Contact</a>
+  </nav>
+</div>
+<main id="main">
+<div class="container">
+  <div class="article-layout">
+    <header class="article-head">
+      <a class="crumb" href="articles.html">All articles</a>
+      <h1 class="article-title">Five builds to get a profile page that looked like mine</h1>
+      <p class="article-meta">WEBPROG &middot; Year 2, Term 2 &middot; 2 min read</p>
+      <p class="article-source">Based on: WEBPROG Activity 2, submitted 2026-11-06</p>
+    </header>
+    <div class="article-cover"><img src="images/cover-profile-page-five-builds-800.webp" srcset="images/cover-profile-page-five-builds-400.webp 400w, images/cover-profile-page-five-builds-800.webp 800w" sizes="(min-width: 60em) 44rem, 100vw" width="800" height="500" alt="Screenshot of my WEBPROG Activity 2 profile page in a browser window" decoding="async"></div>
+    <article class="article-body prose">
+<p>WEBPROG Activity 2 asked for a profile page with three types of CSS, a skills list, a contact card and at least three pages. It was due on 2026-11-06 at 1:30 PM. I started on the 5th, and the page went through five different looks before I submitted it.</p>
+<h2>What changed each time</h2>
+<ul><li><strong>Build 1</strong> was a dark developer-style page with a labelled box-model frame around my photo. I did not want a box on my picture, and nobody had asked whether the page should look like my portfolio.</li><li><strong>Build 2</strong> used cream and denim, my header bar and a code window. I said it looked like AI slop.</li><li><strong>Build 3</strong> was bold and loud, in yellow, black and white. The colours did not look like me at all.</li><li><strong>Build 4</strong> put my portfolio&#x27;s colours on the bold layout, in two rounds. The second came after I read which colours the live site really uses where.</li><li><strong>Build 5</strong> used the whole portfolio design system.</li></ul>
+<h2>Why build 4 still failed</h2>
+<p>Build 4 had the right colours and almost everything else wrong. It had thick black borders, hard offset shadows and a huge uppercase name. None of those exist on my portfolio. Colour is the easiest part of a design to copy and the least of what makes it recognisable.</p>
+<h2>What reading the real CSS showed</h2>
+<p>I opened the live site&#x27;s <code>styles.css</code> instead of looking at screenshots. The system was quieter than I remembered: one-pixel hairline rules, corner radii of 12, 16 and 20 pixels, soft shadows, Outfit headings at weight 600, and the denim gradient on only the main button, the closing card and the footer.</p>
+<p>I also cut a &quot;How this page is built&quot; section that explained the CSS to the grader. If a page uses a technique, it does not need to announce it.</p>
+<aside class="note"><p class="note-title">Next time</p><p>Before the first build, open the reference site&#x27;s stylesheet and write down its tokens. Ask early whether the page should look like my portfolio. The answer was yes the whole time.</p></aside>
+    </article>
+    <nav class="article-pager" aria-label="More articles"><div class="pager"><a class="pager-link" href="flexbox-recipes-i-kept-reusing.html"><span class="pager-dir">Older article</span><span class="pager-title">Four Flexbox recipes I kept reusing</span></a></div></nav>
+    <aside class="map" aria-labelledby="map-title-article">
+  <h2 class="map-title" id="map-title-article">Course map</h2>
+  <p class="map-lede">Filled subjects link to an article. Empty ones are still to come.</p>
+  <ol class="terms"><li class="term is-current"><h3 class="term-name"><span>Year 2, Term 2</span><span class="term-state">current term</span></h3><ul class="tiles"><li><a class="tile" href="articles.html#subject-webprog" aria-current="true"><span>WEBPROG</span><span class="tile-count">2 articles</span></a></li><li><a class="tile" href="articles.html#subject-mobprog"><span>MOBPROG</span><span class="tile-count">1 article</span></a></li><li><a class="tile" href="articles.html#subject-datama2"><span>DATAMA2</span><span class="tile-count">1 article</span></a></li><li><span class="tile">PEMBEDS</span></li><li><a class="tile" href="articles.html#subject-anlytc1"><span>ANLYTC1</span><span class="tile-count">1 article</span></a></li><li><span class="tile">CLDCOMP</span></li><li><span class="tile">PEDUTRI</span></li></ul></li><li class="term"><h3 class="term-name"><span>Year 2, Term 1</span></h3><ul class="tiles"><li><a class="tile" href="articles.html#subject-userdes"><span>USERDES</span><span class="tile-count">2 articles</span></a></li><li><a class="tile" href="articles.html#subject-discret"><span>DISCRET</span><span class="tile-count">1 article</span></a></li><li><a class="tile" href="articles.html#subject-datama1"><span>DATAMA1</span><span class="tile-count">1 article</span></a></li><li><span class="tile">QUAMET1</span></li><li><a class="tile" href="articles.html#subject-rpasyst"><span>RPASYST</span><span class="tile-count">1 article</span></a></li><li><span class="tile">INFOSEC</span></li><li><span class="tile">PEDTWO</span></li></ul></li></ol>
+  <p class="map-more"><a href="about.html#program-title">See the whole program</a></p>
+</aside>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-columns">
+      <div>
+        <a class="footer-brand" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M13 8 L5 20 L13 32"/><path d="M19 9h14M19 20h10M19 31h14M19 9v22"/></svg><span>Term by Term</span></a>
+        <p class="footer-blurb">Notes from the BSIT program at Asia Pacific College. Every article starts from work I handed in.</p>
+      </div>
+      <div>
+        <h2 class="footer-heading">Pages</h2>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="articles.html">Articles</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-heading">Contact</h2>
+        <ul class="footer-links">
+          <li><a href="mailto:epexanes@student.apc.edu.ph">epexanes@student.apc.edu.ph</a></li>
+          <li><a href="https://github.com/evanexanes">GitHub: evanexanes</a></li>
+          <li><a href="https://evanexanes.github.io/">Portfolio: evanexanes.github.io</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-base">Hand-coded HTML and CSS, plus one small script for the phone menu, for WEBPROG Activity 3. &copy; 2026 Evan Exanes.</p>
+  </div>
+</footer>
+</body>
+</html>

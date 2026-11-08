@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One fact per field, one fact per row | Term by Term</title>
+<meta name="description" content="Five kinds of dirty data, and the one rule each of them breaks.">
+<link rel="icon" href="images/logo-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add("js")</script>
+<script src="menu.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the content</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="wordmark" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M13 8 L5 20 L13 32"/><path d="M19 9h14M19 20h10M19 31h14M19 9v22"/></svg>
+      <span class="wordmark-text"><span class="wordmark-name">Term by Term</span><span class="wordmark-sub">Notes from my BSIT classes</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="articles.html" aria-current="page">Articles</a>
+      <a href="about.html">About</a>
+      <a href="about.html#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-drawer" aria-label="Open menu">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+  </div>
+</header>
+<div class="drawer-shade" id="drawer-shade" hidden></div>
+<div class="site-drawer" id="site-drawer" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <div class="drawer-top">
+    <a class="wordmark drawer-wordmark" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M13 8 L5 20 L13 32"/><path d="M19 9h14M19 20h10M19 31h14M19 9v22"/></svg>
+      <span class="wordmark-text"><span class="wordmark-name">Term by Term</span><span class="wordmark-sub">Notes from my BSIT classes</span></span>
+    </a>
+    <button class="drawer-close" type="button" aria-label="Close menu" data-drawer-close>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <nav class="drawer-nav" aria-label="Main">
+    <a href="index.html">Home</a>
+    <a href="articles.html" aria-current="page">Articles</a>
+    <a href="about.html">About</a>
+    <a href="about.html#contact">Contact</a>
+  </nav>
+</div>
+<main id="main">
+<div class="container">
+  <div class="article-layout">
+    <header class="article-head">
+      <a class="crumb" href="articles.html">All articles</a>
+      <h1 class="article-title">One fact per field, one fact per row</h1>
+      <p class="article-meta">ANLYTC1 &middot; Year 2, Term 2 &middot; 2 min read</p>
+      <p class="article-source">Based on: ANLYTC1 Data Cleansing Exercises, Data2 to Data6, submitted 2026-11-06</p>
+    </header>
+    <div class="article-cover"><img src="images/cover-one-fact-per-field-800.webp" srcset="images/cover-one-fact-per-field-400.webp 400w, images/cover-one-fact-per-field-800.webp 800w" sizes="(min-width: 60em) 44rem, 100vw" width="800" height="500" alt="Card listing the five kinds of dirty data from my ANLYTC1 exercises, with an example of each, such as 0Bottle and Binders | Art | Phones" decoding="async"></div>
+    <article class="article-body prose">
+<p>The ANLYTC1 cleansing exercises gave me five messy workbooks. Every one of them broke the same rule: one fact per field, one fact per row. Once I saw that, each file was a question of which half of the rule it broke.</p>
+<table class="data-table"><caption class="visually-hidden">The five dirt patterns and their fixes</caption><thead><tr><th scope="col">Pattern</th><th scope="col">Looks like</th><th scope="col">Fix</th></tr></thead><tbody><tr><td data-label="Pattern">Crosstab</td><td data-label="Looks like">Ship Mode spread over 12 columns</td><td data-label="Fix">One row per value: loop over the columns and write one row for each</td></tr><tr><td data-label="Pattern">Run-on text</td><td data-label="Looks like"><code>Name X Address Y Age 17 Gender Male</code> in one cell</td><td data-label="Fix">One pattern that uses the labels as separators</td></tr><tr><td data-label="Pattern">Fused fields</td><td data-label="Looks like"><code>0Bottle</code>, a quantity and a unit in one cell</td><td data-label="Fix">Number up front into a numeric column, letters at the back</td></tr><tr><td data-label="Pattern">Letters typed for digits</td><td data-label="Looks like"><code>41oo</code>, <code>I000</code>, <code>0.S</code></td><td data-label="Fix">A character map (o to 0, i to 1, s to 5), then prove it row by row</td></tr><tr><td data-label="Pattern">Packed cells</td><td data-label="Looks like"><code>Binders | Art | Phones</code> beside three prices</td><td data-label="Fix">Split both cells, pair by position, repeat the key. This is 1NF</td></tr></tbody></table>
+<h2>Proving the letter map</h2>
+<p>A substitution map can look right and still be wrong. The inventory sheet had Beginning + Received - Dispensed - Losses = Ending on every row, so I used that arithmetic to confirm each guess, row by row.</p>
+<h2>A total that did not match</h2>
+<p>Four of the five totals on Data5 matched the answer key. Quantity Received did not: I had 250,997.30 and the key had 250,992.00. The 5.30 difference was exactly the 14 fractional cells (4.8) plus the <code>0.S</code> cell (0.5). The key left fractions out of that column and counted them in the other three. I reported the difference instead of changing the data to hit the number.</p>
+<aside class="note"><p class="note-title">Next time</p><p>Verify with a separate script from the one that did the cleaning. Compare sample rows, row counts and totals, then reopen the file in a second program.</p></aside>
+    </article>
+    <nav class="article-pager" aria-label="More articles"><div class="pager"><a class="pager-link" href="a-payment-means-exactly-one.html"><span class="pager-dir">Newer article</span><span class="pager-title">In my ERD, &quot;a PAYMENT&quot; meant exactly one</span></a><a class="pager-link" href="counting-a-loop-twice.html"><span class="pager-dir">Older article</span><span class="pager-title">Counting a loop twice: when the slide and the textbook disagree</span></a></div></nav>
+    <aside class="map" aria-labelledby="map-title-article">
+  <h2 class="map-title" id="map-title-article">Course map</h2>
+  <p class="map-lede">Filled subjects link to an article. Empty ones are still to come.</p>
+  <ol class="terms"><li class="term is-current"><h3 class="term-name"><span>Year 2, Term 2</span><span class="term-state">current term</span></h3><ul class="tiles"><li><a class="tile" href="articles.html#subject-webprog"><span>WEBPROG</span><span class="tile-count">2 articles</span></a></li><li><a class="tile" href="articles.html#subject-mobprog"><span>MOBPROG</span><span class="tile-count">1 article</span></a></li><li><a class="tile" href="articles.html#subject-datama2"><span>DATAMA2</span><span class="tile-count">1 article</span></a></li><li><span class="tile">PEMBEDS</span></li><li><a class="tile" href="articles.html#subject-anlytc1" aria-current="true"><span>ANLYTC1</span><span class="tile-count">1 article</span></a></li><li><span class="tile">CLDCOMP</span></li><li><span class="tile">PEDUTRI</span></li></ul></li><li class="term"><h3 class="term-name"><span>Year 2, Term 1</span></h3><ul class="tiles"><li><a class="tile" href="articles.html#subject-userdes"><span>USERDES</span><span class="tile-count">2 articles</span></a></li><li><a class="tile" href="articles.html#subject-discret"><span>DISCRET</span><span class="tile-count">1 article</span></a></li><li><a class="tile" href="articles.html#subject-datama1"><span>DATAMA1</span><span class="tile-count">1 article</span></a></li><li><span class="tile">QUAMET1</span></li><li><a class="tile" href="articles.html#subject-rpasyst"><span>RPASYST</span><span class="tile-count">1 article</span></a></li><li><span class="tile">INFOSEC</span></li><li><span class="tile">PEDTWO</span></li></ul></li></ol>
+  <p class="map-more"><a href="about.html#program-title">See the whole program</a></p>
+</aside>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-columns">
+      <div>
+        <a class="footer-brand" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M13 8 L5 20 L13 32"/><path d="M19 9h14M19 20h10M19 31h14M19 9v22"/></svg><span>Term by Term</span></a>
+        <p class="footer-blurb">Notes from the BSIT program at Asia Pacific College. Every article starts from work I handed in.</p>
+      </div>
+      <div>
+        <h2 class="footer-heading">Pages</h2>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="articles.html">Articles</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-heading">Contact</h2>
+        <ul class="footer-links">
+          <li><a href="mailto:epexanes@student.apc.edu.ph">epexanes@student.apc.edu.ph</a></li>
+          <li><a href="https://github.com/evanexanes">GitHub: evanexanes</a></li>
+          <li><a href="https://evanexanes.github.io/">Portfolio: evanexanes.github.io</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-base">Hand-coded HTML and CSS, plus one small script for the phone menu, for WEBPROG Activity 3. &copy; 2026 Evan Exanes.</p>
+  </div>
+</footer>
+</body>
+</html>

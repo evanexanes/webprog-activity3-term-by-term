@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Counting a loop twice: when the slide and the textbook disagree | Term by Term</title>
+<meta name="description" content="Two problem sets on graphs came down to using the slide&#x27;s definitions and checking every answer from an edge list.">
+<link rel="icon" href="images/logo-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add("js")</script>
+<script src="menu.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the content</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="wordmark" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M13 8 L5 20 L13 32"/><path d="M19 9h14M19 20h10M19 31h14M19 9v22"/></svg>
+      <span class="wordmark-text"><span class="wordmark-name">Term by Term</span><span class="wordmark-sub">Notes from my BSIT classes</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="articles.html" aria-current="page">Articles</a>
+      <a href="about.html">About</a>
+      <a href="about.html#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-drawer" aria-label="Open menu">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+  </div>
+</header>
+<div class="drawer-shade" id="drawer-shade" hidden></div>
+<div class="site-drawer" id="site-drawer" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <div class="drawer-top">
+    <a class="wordmark drawer-wordmark" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M13 8 L5 20 L13 32"/><path d="M19 9h14M19 20h10M19 31h14M19 9v22"/></svg>
+      <span class="wordmark-text"><span class="wordmark-name">Term by Term</span><span class="wordmark-sub">Notes from my BSIT classes</span></span>
+    </a>
+    <button class="drawer-close" type="button" aria-label="Close menu" data-drawer-close>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <nav class="drawer-nav" aria-label="Main">
+    <a href="index.html">Home</a>
+    <a href="articles.html" aria-current="page">Articles</a>
+    <a href="about.html">About</a>
+    <a href="about.html#contact">Contact</a>
+  </nav>
+</div>
+<main id="main">
+<div class="container">
+  <div class="article-layout">
+    <header class="article-head">
+      <a class="crumb" href="articles.html">All articles</a>
+      <h1 class="article-title">Counting a loop twice: when the slide and the textbook disagree</h1>
+      <p class="article-meta">DISCRET &middot; Year 2, Term 1 &middot; 2 min read</p>
+      <p class="article-source">Based on: DISCRET Problem Sets 4.a and 4.b, graph theory, submitted 2026-10-06</p>
+    </header>
+    <div class="article-cover"><img src="images/cover-counting-a-loop-twice-800.webp" srcset="images/cover-counting-a-loop-twice-400.webp 400w, images/cover-counting-a-loop-twice-800.webp 800w" sizes="(min-width: 60em) 44rem, 100vw" width="800" height="500" alt="Diagram of a vertex with a loop, with a degree of 1 if the slide is read literally and 2 by the usual convention" decoding="async"></div>
+    <article class="article-body prose">
+<p>Problem Sets 4.a and 4.b were two Microsoft Forms on graph theory: 30 questions on three pictured graphs, and 15 on Dijkstra&#x27;s shortest path. Each question was worth one point. Counting questions took a number, walk questions were Yes or No, and neighbour, adjacent, source and sink questions were True or False. On 4.b, distance questions took a number and two questions removed a vertex or an edge and asked for the new distance.</p>
+<h2>Use the slide&#x27;s definition</h2>
+<p>The slides fix some definitions that differ from the textbook. A trail has all edges distinct, so going back along an edge repeats it. A path has all vertices distinct. Eulerian means a walk that uses every edge exactly once, and the slides let that walk be open, so a graph with exactly two odd-degree vertices counts. The textbook meaning, a closed circuit, is stricter.</p>
+<h2>Two points the slides do not settle</h2>
+<ul><li><strong>The degree of a vertex with a loop.</strong> The slide says &quot;number of edges incident&quot;, which read literally gives one. The usual convention counts a loop twice. I answered two.</li><li><strong>A Form captioned undirected but drawn with arrows.</strong> I answered it as directed, because the directed answer was one of the listed options and the undirected answer was not.</li></ul>
+<p>Neither choice has been confirmed by the instructor. I wrote both down in my notes so I can correct them when feedback arrives.</p>
+<h2>The method</h2>
+<p>I read each picture into an explicit list of edges first. Then I recomputed every answer in Python from that list: walk checks, degrees, Hamiltonian cycles by brute force, and Dijkstra with a heap. For &quot;identify the path&quot; questions I costed every option, not only the winner. For &quot;remove a vertex&quot; questions I reran Dijkstra on the reduced list.</p>
+<aside class="note"><p class="note-title">The limit of the method</p><p>Python cannot check how I read the picture. Before submitting, I compared each weight and arrow direction against the screen one more time.</p></aside>
+    </article>
+    <nav class="article-pager" aria-label="More articles"><div class="pager"><a class="pager-link" href="one-fact-per-field.html"><span class="pager-dir">Newer article</span><span class="pager-title">One fact per field, one fact per row</span></a><a class="pager-link" href="answer-key-before-the-bot.html"><span class="pager-dir">Older article</span><span class="pager-title">Compute the answer key before you build the bot</span></a></div></nav>
+    <aside class="map" aria-labelledby="map-title-article">
+  <h2 class="map-title" id="map-title-article">Course map</h2>
+  <p class="map-lede">Filled subjects link to an article. Empty ones are still to come.</p>
+  <ol class="terms"><li class="term is-current"><h3 class="term-name"><span>Year 2, Term 2</span><span class="term-state">current term</span></h3><ul class="tiles"><li><a class="tile" href="articles.html#subject-webprog"><span>WEBPROG</span><span class="tile-count">2 articles</span></a></li><li><a class="tile" href="articles.html#subject-mobprog"><span>MOBPROG</span><span class="tile-count">1 article</span></a></li><li><a class="tile" href="articles.html#subject-datama2"><span>DATAMA2</span><span class="tile-count">1 article</span></a></li><li><span class="tile">PEMBEDS</span></li><li><a class="tile" href="articles.html#subject-anlytc1"><span>ANLYTC1</span><span class="tile-count">1 article</span></a></li><li><span class="tile">CLDCOMP</span></li><li><span class="tile">PEDUTRI</span></li></ul></li><li class="term"><h3 class="term-name"><span>Year 2, Term 1</span></h3><ul class="tiles"><li><a class="tile" href="articles.html#subject-userdes"><span>USERDES</span><span class="tile-count">2 articles</span></a></li><li><a class="tile" href="articles.html#subject-discret" aria-current="true"><span>DISCRET</span><span class="tile-count">1 article</span></a></li><li><a class="tile" href="articles.html#subject-datama1"><span>DATAMA1</span><span class="tile-count">1 article</span></a></li><li><span class="tile">QUAMET1</span></li><li><a class="tile" href="articles.html#subject-rpasyst"><span>RPASYST</span><span class="tile-count">1 article</span></a></li><li><span class="tile">INFOSEC</span></li><li><span class="tile">PEDTWO</span></li></ul></li></ol>
+  <p class="map-more"><a href="about.html#program-title">See the whole program</a></p>
+</aside>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-columns">
+      <div>
+        <a class="footer-brand" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M13 8 L5 20 L13 32"/><path d="M19 9h14M19 20h10M19 31h14M19 9v22"/></svg><span>Term by Term</span></a>
+        <p class="footer-blurb">Notes from the BSIT program at Asia Pacific College. Every article starts from work I handed in.</p>
+      </div>
+      <div>
+        <h2 class="footer-heading">Pages</h2>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="articles.html">Articles</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-heading">Contact</h2>
+        <ul class="footer-links">
+          <li><a href="mailto:epexanes@student.apc.edu.ph">epexanes@student.apc.edu.ph</a></li>
+          <li><a href="https://github.com/evanexanes">GitHub: evanexanes</a></li>
+          <li><a href="https://evanexanes.github.io/">Portfolio: evanexanes.github.io</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-base">Hand-coded HTML and CSS, plus one small script for the phone menu, for WEBPROG Activity 3. &copy; 2026 Evan Exanes.</p>
+  </div>
+</footer>
+</body>
+</html>

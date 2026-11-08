@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Normalising to 1NF made my data worse before 4NF fixed it | Term by Term</title>
+<meta name="description" content="Splitting multi-valued columns into rows turned three rows into eighteen. Only 4NF undid the damage.">
+<link rel="icon" href="images/logo-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add("js")</script>
+<script src="menu.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the content</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="wordmark" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M13 8 L5 20 L13 32"/><path d="M19 9h14M19 20h10M19 31h14M19 9v22"/></svg>
+      <span class="wordmark-text"><span class="wordmark-name">Term by Term</span><span class="wordmark-sub">Notes from my BSIT classes</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="articles.html" aria-current="page">Articles</a>
+      <a href="about.html">About</a>
+      <a href="about.html#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-drawer" aria-label="Open menu">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+  </div>
+</header>
+<div class="drawer-shade" id="drawer-shade" hidden></div>
+<div class="site-drawer" id="site-drawer" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <div class="drawer-top">
+    <a class="wordmark drawer-wordmark" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M13 8 L5 20 L13 32"/><path d="M19 9h14M19 20h10M19 31h14M19 9v22"/></svg>
+      <span class="wordmark-text"><span class="wordmark-name">Term by Term</span><span class="wordmark-sub">Notes from my BSIT classes</span></span>
+    </a>
+    <button class="drawer-close" type="button" aria-label="Close menu" data-drawer-close>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <nav class="drawer-nav" aria-label="Main">
+    <a href="index.html">Home</a>
+    <a href="articles.html" aria-current="page">Articles</a>
+    <a href="about.html">About</a>
+    <a href="about.html#contact">Contact</a>
+  </nav>
+</div>
+<main id="main">
+<div class="container">
+  <div class="article-layout">
+    <header class="article-head">
+      <a class="crumb" href="articles.html">All articles</a>
+      <h1 class="article-title">Normalising to 1NF made my data worse before 4NF fixed it</h1>
+      <p class="article-meta">DATAMA1 &middot; Year 2, Term 1 &middot; 2 min read</p>
+      <p class="article-source">Based on: DATAMA1 Normalization Exercise, &quot;The Startup Catastrophe&quot;, 2026-09-24 and 2026-09-25</p>
+    </header>
+    <div class="article-cover"><img src="images/cover-normalising-made-my-data-worse-800.webp" srcset="images/cover-normalising-made-my-data-worse-400.webp 400w, images/cover-normalising-made-my-data-worse-800.webp 800w" sizes="(min-width: 60em) 44rem, 100vw" width="800" height="500" alt="Detail of my DATAMA1 Startup Catastrophe schema in MySQL Workbench" decoding="async"></div>
+    <article class="article-body prose">
+<p>The seatwork gave me one table, <code>Bootcamp_Master_Record</code>, with 3 rows and 9 columns. I had to normalise it from 1NF to 4NF, name three anomalies and defend the final schema.</p>
+<p>The seatwork had no rubric. To show the two assigned videos had been used, I cited their own examples in each answer.</p>
+<h2>First normal form made it bigger</h2>
+<p>One value per cell is all 1NF asks for. When I expanded 3 licenses, 2 languages and 2 frameworks per student, three rows became eighteen and one student&#x27;s name appeared sixteen times. Redundancy got worse, which shows that 1NF fixes atomicity and nothing else.</p>
+<h2>The trap in 4NF</h2>
+<p>The table after 1NF has no non-key attributes, so it passes 2NF and 3NF without changing. Only 4NF notices that languages and frameworks have nothing to do with each other. A single <code>STUDENT_SKILL(student, language, framework)</code> table is the wrong answer. They need two tables.</p>
+<figure class="figure"><details class="figure-details"><summary>Open the full schema</summary><img src="images/fig-normalising-made-my-data-worse-1-944.webp" srcset="images/fig-normalising-made-my-data-worse-1-720.webp 720w, images/fig-normalising-made-my-data-worse-1-944.webp 944w" sizes="(min-width: 60em) 44rem, 100vw" width="944" height="929" alt="Entity relationship diagram of the Startup Catastrophe schema: STUDENT, PROGRAM and INSTRUCTOR, with separate tables for languages, frameworks and software licenses" loading="lazy" decoding="async"></details><figcaption>The schema from the DATAMA1 Startup Catastrophe activity, drawn in MySQL Workbench.</figcaption></figure>
+<h2>Checking the claims</h2>
+<p>Before I wrote a functional dependency down, I tested it against the real rows with a short Python check: that the five-column 1NF key is unique, that <code>Hardware</code> determines <code>Student</code>, and exactly what deleting one student would lose. That last check showed plain decomposition still loses a piece of software when its only user is deleted. I added a software catalogue table and an <code>ON DELETE SET NULL</code> rule on the hardware table&#x27;s student column.</p>
+<h2>Colour by role</h2>
+<p>In the follow-up activity I rebuilt the instructor&#x27;s 4NF answer in MySQL Workbench. Blue marked the main entities, orange the bridge and green the 4NF multi-valued tables, and tinted layers carried the labels so the diagram explained its own colours.</p>
+<aside class="note"><p class="note-title">A judgement call</p><p>I modelled licenses as issued to the student, not the device, because the brief says &quot;assigned to a student&quot;.</p></aside>
+    </article>
+    <nav class="article-pager" aria-label="More articles"><div class="pager"><a class="pager-link" href="why-my-portfolio-has-two-blues.html"><span class="pager-dir">Newer article</span><span class="pager-title">Why my portfolio has two blues</span></a><a class="pager-link" href="three-classmates-tested-my-site-map.html"><span class="pager-dir">Older article</span><span class="pager-title">Three classmates tested my site map. I left two weak spots in on purpose.</span></a></div></nav>
+    <aside class="map" aria-labelledby="map-title-article">
+  <h2 class="map-title" id="map-title-article">Course map</h2>
+  <p class="map-lede">Filled subjects link to an article. Empty ones are still to come.</p>
+  <ol class="terms"><li class="term is-current"><h3 class="term-name"><span>Year 2, Term 2</span><span class="term-state">current term</span></h3><ul class="tiles"><li><a class="tile" href="articles.html#subject-webprog"><span>WEBPROG</span><span class="tile-count">2 articles</span></a></li><li><a class="tile" href="articles.html#subject-mobprog"><span>MOBPROG</span><span class="tile-count">1 article</span></a></li><li><a class="tile" href="articles.html#subject-datama2"><span>DATAMA2</span><span class="tile-count">1 article</span></a></li><li><span class="tile">PEMBEDS</span></li><li><a class="tile" href="articles.html#subject-anlytc1"><span>ANLYTC1</span><span class="tile-count">1 article</span></a></li><li><span class="tile">CLDCOMP</span></li><li><span class="tile">PEDUTRI</span></li></ul></li><li class="term"><h3 class="term-name"><span>Year 2, Term 1</span></h3><ul class="tiles"><li><a class="tile" href="articles.html#subject-userdes"><span>USERDES</span><span class="tile-count">2 articles</span></a></li><li><a class="tile" href="articles.html#subject-discret"><span>DISCRET</span><span class="tile-count">1 article</span></a></li><li><a class="tile" href="articles.html#subject-datama1" aria-current="true"><span>DATAMA1</span><span class="tile-count">1 article</span></a></li><li><span class="tile">QUAMET1</span></li><li><a class="tile" href="articles.html#subject-rpasyst"><span>RPASYST</span><span class="tile-count">1 article</span></a></li><li><span class="tile">INFOSEC</span></li><li><span class="tile">PEDTWO</span></li></ul></li></ol>
+  <p class="map-more"><a href="about.html#program-title">See the whole program</a></p>
+</aside>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-columns">
+      <div>
+        <a class="footer-brand" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M13 8 L5 20 L13 32"/><path d="M19 9h14M19 20h10M19 31h14M19 9v22"/></svg><span>Term by Term</span></a>
+        <p class="footer-blurb">Notes from the BSIT program at Asia Pacific College. Every article starts from work I handed in.</p>
+      </div>
+      <div>
+        <h2 class="footer-heading">Pages</h2>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="articles.html">Articles</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-heading">Contact</h2>
+        <ul class="footer-links">
+          <li><a href="mailto:epexanes@student.apc.edu.ph">epexanes@student.apc.edu.ph</a></li>
+          <li><a href="https://github.com/evanexanes">GitHub: evanexanes</a></li>
+          <li><a href="https://evanexanes.github.io/">Portfolio: evanexanes.github.io</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-base">Hand-coded HTML and CSS, plus one small script for the phone menu, for WEBPROG Activity 3. &copy; 2026 Evan Exanes.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compute the answer key before you build the bot | Term by Term</title>
+<meta name="description" content="The sample file had 249 rows, the brief said 250, and the real file had 3,000. I trusted none of them until I had counted.">
+<link rel="icon" href="images/logo-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add("js")</script>
+<script src="menu.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the content</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="wordmark" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M13 8 L5 20 L13 32"/><path d="M19 9h14M19 20h10M19 31h14M19 9v22"/></svg>
+      <span class="wordmark-text"><span class="wordmark-name">Term by Term</span><span class="wordmark-sub">Notes from my BSIT classes</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="articles.html" aria-current="page">Articles</a>
+      <a href="about.html">About</a>
+      <a href="about.html#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-drawer" aria-label="Open menu">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+  </div>
+</header>
+<div class="drawer-shade" id="drawer-shade" hidden></div>
+<div class="site-drawer" id="site-drawer" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <div class="drawer-top">
+    <a class="wordmark drawer-wordmark" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M13 8 L5 20 L13 32"/><path d="M19 9h14M19 20h10M19 31h14M19 9v22"/></svg>
+      <span class="wordmark-text"><span class="wordmark-name">Term by Term</span><span class="wordmark-sub">Notes from my BSIT classes</span></span>
+    </a>
+    <button class="drawer-close" type="button" aria-label="Close menu" data-drawer-close>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <nav class="drawer-nav" aria-label="Main">
+    <a href="index.html">Home</a>
+    <a href="articles.html" aria-current="page">Articles</a>
+    <a href="about.html">About</a>
+    <a href="about.html#contact">Contact</a>
+  </nav>
+</div>
+<main id="main">
+<div class="container">
+  <div class="article-layout">
+    <header class="article-head">
+      <a class="crumb" href="articles.html">All articles</a>
+      <h1 class="article-title">Compute the answer key before you build the bot</h1>
+      <p class="article-meta">RPASYST &middot; Year 2, Term 1 &middot; 2 min read</p>
+      <p class="article-source">Based on: RPASYST Final, XYZ Invoice Processing, checked 2026-10-05</p>
+    </header>
+    <div class="article-cover"><img src="images/cover-answer-key-before-the-bot-800.webp" srcset="images/cover-answer-key-before-the-bot-400.webp 400w, images/cover-answer-key-before-the-bot-800.webp 800w" sizes="(min-width: 60em) 44rem, 100vw" width="800" height="500" alt="Card with the three row counts from the invoice file: 250 in the brief, 249 in the sample and 3,000 on checking day" decoding="async"></div>
+    <article class="article-body prose">
+<p>The RPASYST final asked for a bot that processes vendor invoices from an Excel file. It had to be built in Power Automate Desktop only, with no VBA, Python, PowerShell or third-party tools inside the bot. I built it at home on a Windows machine and presented it live on checking day, explaining every action out loud.</p>
+<h2>The sample is not the brief</h2>
+<p>The brief said 250 rows. The sample had 249 plus a header, with one record already moved to an Invalid Records sheet, and the file used on checking day had 3,000 rows. The midterm had the same gap: the brief said 20 rows and the sample had 65. So I worked out the expected results from the raw file before building anything.</p>
+<h2>An answer key from outside the bot</h2>
+<p>Python could not go inside the bot, but nothing stopped me using it to check one. I calculated the expected totals in a separate script, so the bot had something to be compared against. That also exposed a problem the sample hid: row 11 was completely blank, a record cut out and the row left behind. It crashed the first run until I wrapped the loop in an <code>IsNotEmpty</code> check on the vendor.</p>
+<h2>Three smaller fixes</h2>
+<ul><li>Read the Excel file as typed values, never as text, so a negative amount stays a number. Round with <code>Text.FromNumber</code> and then <code>Text.ToNumber</code> to remove float noise such as <code>-97091.00000001</code>.</li><li>The designer&#x27;s Run delay was 50 ms. Looping all rows once per vendor is about 36,000 passes at 3,000 rows, and at 50 ms the sample alone took about seven minutes. Set it to 0 and run from the console.</li><li>Launch Excel with Visible set to True. A workbook saved from a hidden window reopened blank and dark.</li></ul>
+<aside class="note"><p class="note-title">Next time</p><p>List every gap in the brief (sheet names, what makes a record invalid) as an assumption, and ask before building.</p></aside>
+    </article>
+    <nav class="article-pager" aria-label="More articles"><div class="pager"><a class="pager-link" href="counting-a-loop-twice.html"><span class="pager-dir">Newer article</span><span class="pager-title">Counting a loop twice: when the slide and the textbook disagree</span></a><a class="pager-link" href="why-my-portfolio-has-two-blues.html"><span class="pager-dir">Older article</span><span class="pager-title">Why my portfolio has two blues</span></a></div></nav>
+    <aside class="map" aria-labelledby="map-title-article">
+  <h2 class="map-title" id="map-title-article">Course map</h2>
+  <p class="map-lede">Filled subjects link to an article. Empty ones are still to come.</p>
+  <ol class="terms"><li class="term is-current"><h3 class="term-name"><span>Year 2, Term 2</span><span class="term-state">current term</span></h3><ul class="tiles"><li><a class="tile" href="articles.html#subject-webprog"><span>WEBPROG</span><span class="tile-count">2 articles</span></a></li><li><a class="tile" href="articles.html#subject-mobprog"><span>MOBPROG</span><span class="tile-count">1 article</span></a></li><li><a class="tile" href="articles.html#subject-datama2"><span>DATAMA2</span><span class="tile-count">1 article</span></a></li><li><span class="tile">PEMBEDS</span></li><li><a class="tile" href="articles.html#subject-anlytc1"><span>ANLYTC1</span><span class="tile-count">1 article</span></a></li><li><span class="tile">CLDCOMP</span></li><li><span class="tile">PEDUTRI</span></li></ul></li><li class="term"><h3 class="term-name"><span>Year 2, Term 1</span></h3><ul class="tiles"><li><a class="tile" href="articles.html#subject-userdes"><span>USERDES</span><span class="tile-count">2 articles</span></a></li><li><a class="tile" href="articles.html#subject-discret"><span>DISCRET</span><span class="tile-count">1 article</span></a></li><li><a class="tile" href="articles.html#subject-datama1"><span>DATAMA1</span><span class="tile-count">1 article</span></a></li><li><span class="tile">QUAMET1</span></li><li><a class="tile" href="articles.html#subject-rpasyst" aria-current="true"><span>RPASYST</span><span class="tile-count">1 article</span></a></li><li><span class="tile">INFOSEC</span></li><li><span class="tile">PEDTWO</span></li></ul></li></ol>
+  <p class="map-more"><a href="about.html#program-title">See the whole program</a></p>
+</aside>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-columns">
+      <div>
+        <a class="footer-brand" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M13 8 L5 20 L13 32"/><path d="M19 9h14M19 20h10M19 31h14M19 9v22"/></svg><span>Term by Term</span></a>
+        <p class="footer-blurb">Notes from the BSIT program at Asia Pacific College. Every article starts from work I handed in.</p>
+      </div>
+      <div>
+        <h2 class="footer-heading">Pages</h2>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="articles.html">Articles</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-heading">Contact</h2>
+        <ul class="footer-links">
+          <li><a href="mailto:epexanes@student.apc.edu.ph">epexanes@student.apc.edu.ph</a></li>
+          <li><a href="https://github.com/evanexanes">GitHub: evanexanes</a></li>
+          <li><a href="https://evanexanes.github.io/">Portfolio: evanexanes.github.io</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-base">Hand-coded HTML and CSS, plus one small script for the phone menu, for WEBPROG Activity 3. &copy; 2026 Evan Exanes.</p>
+  </div>
+</footer>
+</body>
+</html>

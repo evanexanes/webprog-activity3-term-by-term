@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>In my ERD, &quot;a PAYMENT&quot; meant exactly one | Term by Term</title>
+<meta name="description" content="Reading four business rules the way the instructor writes them gave me a bridge table, six tables and one open question.">
+<link rel="icon" href="images/logo-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add("js")</script>
+<script src="menu.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the content</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="wordmark" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M13 8 L5 20 L13 32"/><path d="M19 9h14M19 20h10M19 31h14M19 9v22"/></svg>
+      <span class="wordmark-text"><span class="wordmark-name">Term by Term</span><span class="wordmark-sub">Notes from my BSIT classes</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="articles.html" aria-current="page">Articles</a>
+      <a href="about.html">About</a>
+      <a href="about.html#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-drawer" aria-label="Open menu">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+  </div>
+</header>
+<div class="drawer-shade" id="drawer-shade" hidden></div>
+<div class="site-drawer" id="site-drawer" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <div class="drawer-top">
+    <a class="wordmark drawer-wordmark" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M13 8 L5 20 L13 32"/><path d="M19 9h14M19 20h10M19 31h14M19 9v22"/></svg>
+      <span class="wordmark-text"><span class="wordmark-name">Term by Term</span><span class="wordmark-sub">Notes from my BSIT classes</span></span>
+    </a>
+    <button class="drawer-close" type="button" aria-label="Close menu" data-drawer-close>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <nav class="drawer-nav" aria-label="Main">
+    <a href="index.html">Home</a>
+    <a href="articles.html" aria-current="page">Articles</a>
+    <a href="about.html">About</a>
+    <a href="about.html#contact">Contact</a>
+  </nav>
+</div>
+<main id="main">
+<div class="container">
+  <div class="article-layout">
+    <header class="article-head">
+      <a class="crumb" href="articles.html">All articles</a>
+      <h1 class="article-title">In my ERD, &quot;a PAYMENT&quot; meant exactly one</h1>
+      <p class="article-meta">DATAMA2 &middot; Year 2, Term 2 &middot; 2 min read</p>
+      <p class="article-source">Based on: DATAMA2 Activity 1, ERD and data dictionary, submitted 2026-11-06</p>
+    </header>
+    <div class="article-cover"><img src="images/cover-a-payment-means-exactly-one-800.webp" srcset="images/cover-a-payment-means-exactly-one-400.webp 400w, images/cover-a-payment-means-exactly-one-800.webp 800w" sizes="(min-width: 60em) 44rem, 100vw" width="800" height="500" alt="Detail of my DATAMA2 entity relationship diagram showing the PAYMENT and CUSTOMER tables" decoding="async"></div>
+    <article class="article-body prose">
+<p>DATAMA2 Activity 1 gave four business rules about customers, orders and payments, an attribute list for each entity, and one tool: MySQL Workbench. The deliverable was a Crow&#x27;s Foot model plus a data dictionary, saved as a PDF.</p>
+<h2>Reading the grammar</h2>
+<p>The rules follow a fixed pattern. The many side reads &quot;one or many CUSTOMER&quot; or &quot;zero or many ORDER&quot;, and the one side reads &quot;a PAYMENT&quot; or &quot;an ORDER&quot;. &quot;A&quot; and &quot;an&quot; mean exactly one. Rule 4 says one or many customers make a payment and a payment is made by one or many customers. Read with that grammar, PAYMENT sits on the one side. That is my reading, not a confirmed answer.</p>
+<h2>When the attribute list disagrees with a rule</h2>
+<p>The ORDER entity listed <code>cust_id</code>, but rule 1 made customers and orders many-to-many. A many-to-many link cannot live in one foreign key, so I followed the rule: a bridge entity between CUSTOMER and ORDER, and no <code>cust_id</code> in ORDER. The business rules are the requirements. The attribute list only offers possible attributes.</p>
+<h2>Building it</h2>
+<p>The finished model has six tables. I wrote them as a CREATE script, ran it on a private MySQL 8 server, and drew the diagram in Workbench from that script. Each table has its own colour, the lines are straight and the Indexes lists are open. A relationship line attaches at the vertical middle of both tables, so two connected tables need equal middles to get a straight line.</p>
+<figure class="figure"><details class="figure-details"><summary>Open the full diagram</summary><img src="images/fig-a-payment-means-exactly-one-1-912.webp" srcset="images/fig-a-payment-means-exactly-one-1-720.webp 720w, images/fig-a-payment-means-exactly-one-1-912.webp 912w" sizes="(min-width: 60em) 44rem, 100vw" width="912" height="608" alt="The full DATAMA2 Activity 1 entity relationship diagram, with six tables in different colours" loading="lazy" decoding="async"></details><figcaption>The full diagram from DATAMA2 Activity 1, submitted 2026-11-06.</figcaption></figure>
+<p>ORDER is an SQL reserved word. I kept the name from the brief and quoted it in the script with backticks.</p>
+<aside class="note"><p class="note-title">Still open</p><p>If rule 4 was meant as many-to-many, the model needs a customer-payment bridge table. Choosing the industry first (I picked a retail store with delivery orders) would have settled the examples earlier.</p></aside>
+    </article>
+    <nav class="article-pager" aria-label="More articles"><div class="pager"><a class="pager-link" href="first-pull-request.html"><span class="pager-dir">Newer article</span><span class="pager-title">My first pull request, and the branch I left unmerged</span></a><a class="pager-link" href="one-fact-per-field.html"><span class="pager-dir">Older article</span><span class="pager-title">One fact per field, one fact per row</span></a></div></nav>
+    <aside class="map" aria-labelledby="map-title-article">
+  <h2 class="map-title" id="map-title-article">Course map</h2>
+  <p class="map-lede">Filled subjects link to an article. Empty ones are still to come.</p>
+  <ol class="terms"><li class="term is-current"><h3 class="term-name"><span>Year 2, Term 2</span><span class="term-state">current term</span></h3><ul class="tiles"><li><a class="tile" href="articles.html#subject-webprog"><span>WEBPROG</span><span class="tile-count">2 articles</span></a></li><li><a class="tile" href="articles.html#subject-mobprog"><span>MOBPROG</span><span class="tile-count">1 article</span></a></li><li><a class="tile" href="articles.html#subject-datama2" aria-current="true"><span>DATAMA2</span><span class="tile-count">1 article</span></a></li><li><span class="tile">PEMBEDS</span></li><li><a class="tile" href="articles.html#subject-anlytc1"><span>ANLYTC1</span><span class="tile-count">1 article</span></a></li><li><span class="tile">CLDCOMP</span></li><li><span class="tile">PEDUTRI</span></li></ul></li><li class="term"><h3 class="term-name"><span>Year 2, Term 1</span></h3><ul class="tiles"><li><a class="tile" href="articles.html#subject-userdes"><span>USERDES</span><span class="tile-count">2 articles</span></a></li><li><a class="tile" href="articles.html#subject-discret"><span>DISCRET</span><span class="tile-count">1 article</span></a></li><li><a class="tile" href="articles.html#subject-datama1"><span>DATAMA1</span><span class="tile-count">1 article</span></a></li><li><span class="tile">QUAMET1</span></li><li><a class="tile" href="articles.html#subject-rpasyst"><span>RPASYST</span><span class="tile-count">1 article</span></a></li><li><span class="tile">INFOSEC</span></li><li><span class="tile">PEDTWO</span></li></ul></li></ol>
+  <p class="map-more"><a href="about.html#program-title">See the whole program</a></p>
+</aside>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-columns">
+      <div>
+        <a class="footer-brand" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M13 8 L5 20 L13 32"/><path d="M19 9h14M19 20h10M19 31h14M19 9v22"/></svg><span>Term by Term</span></a>
+        <p class="footer-blurb">Notes from the BSIT program at Asia Pacific College. Every article starts from work I handed in.</p>
+      </div>
+      <div>
+        <h2 class="footer-heading">Pages</h2>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="articles.html">Articles</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-heading">Contact</h2>
+        <ul class="footer-links">
+          <li><a href="mailto:epexanes@student.apc.edu.ph">epexanes@student.apc.edu.ph</a></li>
+          <li><a href="https://github.com/evanexanes">GitHub: evanexanes</a></li>
+          <li><a href="https://evanexanes.github.io/">Portfolio: evanexanes.github.io</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-base">Hand-coded HTML and CSS, plus one small script for the phone menu, for WEBPROG Activity 3. &copy; 2026 Evan Exanes.</p>
+  </div>
+</footer>
+</body>
+</html>
