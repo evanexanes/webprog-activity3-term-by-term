@@ -12,7 +12,7 @@ A ten-article blog about my second year of BSIT at Asia Pacific College, built f
 - **Phone menu:** below 640 px the links move into a drawer opened by a hamburger button. It traps focus, closes on Escape, and returns focus to the button. With JavaScript off, the links stay in the header.
 
 ## Design
-Cream canvas, black Outfit headings, hairline rules and the denim gradient used sparingly, the same system as my portfolio. Every image is a screenshot of my own work or a card made from numbers in the article. Dark mode follows the device setting.
+Cream canvas, black Outfit headings, hairline rules and the denim gradient used sparingly, the same system as my portfolio. Every image is a screenshot of my own work or a card made from numbers in the article. One light theme at every width, with no theme switch.
 
 ## Run it
 No build step and no framework. Download the folder and open `index.html` in a browser. Keep `fonts/` and `images/` next to the HTML files, because the pages load them by relative path.

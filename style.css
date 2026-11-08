@@ -9,8 +9,8 @@
 
    Design system: Evan's live portfolio (evanexanes.github.io), read from its
    real styles.css. Tokens, type, hairline rules, radii and the denim gradient
-   come from there. The light and dark palettes below are its WCAG-AA verified
-   set; dark follows the visitor's system setting, so no JavaScript is needed.
+   come from there. The light palette below is its WCAG-AA verified set. This
+   blog is light only, at every width and whatever the device setting says.
    ========================================================================== */
 
 @font-face {
@@ -23,7 +23,7 @@
 }
 
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
 
   /* Surfaces */
   --bone:        #EFECE3;   /* page canvas */
@@ -65,27 +65,6 @@
   --radius-sm: 8px;
   --radius-lg: 16px;
   --t-fast: 130ms ease;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bone:        #12151B;
-    --card:        #1A1F28;
-    --rule:        #2A303B;
-    --rule-strong: #3D4555;
-    --border-ui:   #7A8496;
-    --black:       #FFFFFF;
-    --ink:         #EFECE3;
-    --slate:       #A9B2C0;
-    --denim:       #8FABD4;
-    --denim-dark:  #B4C8E6;
-    --clay:        #E0906B;
-    --header-bg:   rgba(18, 21, 27, 0.92);
-    --code-bg:     #0B0D11;
-    --shadow-xs:    0 1px 2px rgba(0, 0, 0, 0.35);
-    --shadow-float: 0 6px 18px rgba(0, 0, 0, 0.30);
-    --shadow-lift:  0 10px 24px rgba(0, 0, 0, 0.35);
-  }
 }
 
 /* ------------------------------------------------------------------ base */
