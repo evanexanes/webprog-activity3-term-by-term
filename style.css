@@ -10,10 +10,11 @@ Date           Description                      Programmer name
 ======================================================================
 11/08/2026     Initial Implementation           EPPE
 11/09/2026     Added file header                EPPE with Claude
+11/09/2026     Plain section comments           EPPE with Claude
 ======================================================================
 */
 
-/* ==========================================================================
+/*
    Term by Term: WEBPROG Activity 3 (CSS - Grid and Mobile)
    Evan Exanes, BSIT IT252, Asia Pacific College
 
@@ -26,7 +27,7 @@ Date           Description                      Programmer name
    real styles.css. Tokens, type, hairline rules, radii and the denim gradient
    come from there. The light palette below is its WCAG-AA verified set. This
    blog is light only, at every width and whatever the device setting says.
-   ========================================================================== */
+   */
 
 @font-face {
   font-family: 'Inter'; font-style: normal; font-weight: 400 600; font-display: swap;
@@ -82,7 +83,7 @@ Date           Description                      Programmer name
   --t-fast: 130ms ease;
 }
 
-/* ------------------------------------------------------------------ base */
+/* Base */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { font-size: 16px; scroll-padding-top: 100px; }
@@ -135,7 +136,7 @@ ul, ol { list-style: none; }
   clip-path: inset(50%); overflow: hidden; white-space: nowrap;
 }
 
-/* ---------------------------------------------------------------- header */
+/* Header */
 /* Sticky at every width. The bar sits on a solid strip of the page colour so text never shows between
    the bar and the screen edge, and it has no backdrop blur, which re-paints on every scroll frame. */
 .site-header { position: sticky; top: 0; z-index: 100; padding: 8px var(--gutter); background-color: var(--bone); }
@@ -255,7 +256,7 @@ html.drawer-open { overflow: hidden; scrollbar-gutter: stable; }
   .site-drawer, .drawer-shade, .nav-toggle .bar { transition: none; }
 }
 
-/* --------------------------------------------------------------- buttons */
+/* Buttons */
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
   min-height: var(--tap); padding: 8px 22px;
@@ -280,7 +281,7 @@ html.drawer-open { overflow: hidden; scrollbar-gutter: stable; }
   color: var(--denim-dark); border-color: var(--denim-dark);
 }
 
-/* ------------------------------------------------------------------ hero */
+/* Hero */
 /* Home. One column on a phone; at 60em a 12-column grid puts the headline on
    7 columns and the course map on 5. */
 .hero { display: grid; gap: 40px; padding-block: 40px 48px; }
@@ -297,7 +298,7 @@ html.drawer-open { overflow: hidden; scrollbar-gutter: stable; }
 .hero-actions { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; }
 .hero-note { margin-top: 12px; font-size: 0.875rem; color: var(--slate); }
 
-/* ----------------------------------------------------------- section head */
+/* Section head */
 .section-head { margin-bottom: 24px; }
 .section-title {
   font-family: var(--font-display);
@@ -309,7 +310,7 @@ html.drawer-open { overflow: hidden; scrollbar-gutter: stable; }
 
 .band { padding-block: 40px 56px; border-top: 1px solid var(--rule); }
 
-/* ------------------------------------------------------------- course map */
+/* Course map */
 /* The identity motif. Terms are cards, subjects are tiles (both Grid). Subjects
    that have an article are filled links. Only terms with an article appear in
    the aside; the About page holds the whole program. */
@@ -382,7 +383,7 @@ a.tile .tile-count { color: var(--ink); }
 a.tile[aria-current] .tile-count { color: #FFFFFF; }
 .tile-name { font-family: var(--font-body); font-size: 0.75rem; line-height: 1.3; margin-top: 2px; }
 
-/* ----------------------------------------------------------------- cards */
+/* Cards */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
@@ -437,7 +438,7 @@ a.tile[aria-current] .tile-count { color: #FFFFFF; }
 
 .feature-grid { display: grid; gap: 16px; }
 
-/* --------------------------------------------------------- articles page */
+/* Articles page */
 .page-head { padding-block: 40px 8px; }
 .page-title {
   font-family: var(--font-display);
@@ -462,7 +463,7 @@ a.tile[aria-current] .tile-count { color: #FFFFFF; }
 .term-label .term-year { display: block; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 400; letter-spacing: 0.04em; color: var(--clay); margin-bottom: 4px; }
 .term-count { display: block; margin-top: 6px; font-family: var(--font-body); font-size: 0.875rem; font-weight: 400; letter-spacing: 0; color: var(--slate); }
 
-/* --------------------------------------------------------------- article */
+/* Article */
 .article-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -548,7 +549,7 @@ a.tile[aria-current] .tile-count { color: #FFFFFF; }
 .pager-dir { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.03em; color: var(--clay); }
 .pager-title { font-family: var(--font-display); font-weight: 600; color: var(--black); line-height: 1.3; }
 
-/* ----------------------------------------------------------------- about */
+/* About */
 .about-grid { display: grid; gap: 32px; padding-block: 32px 48px; }
 .about-copy { max-width: 62ch; }
 .about-copy > * + * { margin-top: 1em; }
@@ -594,7 +595,7 @@ a.tile[aria-current] .tile-count { color: #FFFFFF; }
 .tile--note { align-content: start; padding: 8px 10px; border-style: solid; background: var(--bone); }
 .tile-note { margin-top: 4px; font-family: var(--font-body); font-size: 0.875rem; line-height: 1.45; color: var(--ink); }
 
-/* ------------------------------------------------------------- visuals */
+/* Visuals */
 /* Direction C (Evan chose it, 2026-11-08): an art backdrop with a real screenshot of his own
    work laid over it. The cover is one image, so the browser has one file to fetch per card. */
 .card-cover { aspect-ratio: 16 / 10; overflow: hidden; border-radius: var(--radius-lg) var(--radius-lg) 0 0; background: #243B61; }
@@ -618,7 +619,7 @@ a.tile[aria-current] .tile-count { color: #FFFFFF; }
 /* From the course map: the card a subject tile pointed at gets a ring (works with the keyboard). */
 .card:target { outline: 3px solid var(--denim-brand); outline-offset: 4px; }
 
-/* ---------------------------------------------------------------- footer */
+/* Footer */
 .site-footer {
   background-color: #13161C; background-image: var(--grad-footer);
   color: #DCE6F3;
@@ -636,9 +637,7 @@ a.tile[aria-current] .tile-count { color: #FFFFFF; }
 .site-footer a:focus-visible, .site-footer [tabindex]:focus-visible { outline-color: #FFFFFF; }
 .footer-base { margin-top: 28px; padding-top: 20px; border-top: 1px solid rgba(220, 230, 243, 0.25); font-size: 0.8125rem; color: #DCE6F3; }
 
-/* ===================================================================
-   40em and up: tablets and large phones held sideways
-   =================================================================== */
+/* 40em and up: tablets and large phones held sideways */
 @media (min-width: 40em) {
   :root { --gutter: 24px; }
 
@@ -668,9 +667,7 @@ a.tile[aria-current] .tile-count { color: #FFFFFF; }
   .year-terms { gap: 16px; }
 }
 
-/* ===================================================================
-   60em and up: laptops and desktops
-   =================================================================== */
+/* 60em and up: laptops and desktops */
 @media (min-width: 60em) {
 
   /* Home hero: a 12-column grid, headline on 7 columns, course map on 5. */
