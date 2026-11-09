@@ -21,7 +21,6 @@
 - [What the activity asked for](#what-the-activity-asked-for)
 - [Design](#design)
 - [Run it](#run-it)
-- [Source file headers](#source-file-headers)
 - [License](#license)
 - [Author](#author)
 
@@ -40,23 +39,6 @@ Cream canvas, black Outfit headings, hairline rules and the denim gradient used 
 There is no build step and no framework. Download the folder and open `index.html` in a browser. Keep `fonts/` and `images/` next to the HTML files, because the pages load them by relative path.
 
 Outfit and Inter are bundled in `fonts/`, both under the SIL Open Font License, so the pages make no network requests. The only script is `menu.js`, the phone menu.
-
-## Source file headers
-Every HTML, CSS and JavaScript file opens with the block below. A commit that changes a file adds a row to its history table.
-
-```text
-Program name: <file name>
-Description: <what the file does>
-Author: Exanes, Evan Prens
-Date Compiled: MM/DD/YYYY
-======================================================================
-Date           Description                      Programmer name
-======================================================================
-MM/DD/YYYY     Initial Implementation           EPPE
-======================================================================
-```
-
-`EPPE` is Evan Prens P. Exanes. A row reading `EPPE with Claude` marks a change written with AI help.
 
 ## License
 The code and article text are released under the [MIT License](LICENSE).
