@@ -10,6 +10,7 @@ Date           Description                      Programmer name
 ======================================================================
 11/08/2026     Initial Implementation           EPPE
 11/09/2026     Added header and comments        EPPE with Claude
+11/09/2026     Added section comments           EPPE with Claude
 ======================================================================
 -->
 <html lang="en">
@@ -26,18 +27,22 @@ Date           Description                      Programmer name
 <script src="menu.js" defer></script>
 </head>
 <body>
+<!-- Skip link: lets keyboard users jump past the header straight to the main content. -->
 <a class="skip-link" href="#main">Skip to the content</a>
+<!-- Site header: logo, main navigation and the hamburger button used on phones. -->
 <header class="site-header">
   <div class="header-inner">
     <a class="wordmark" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M13 8 L5 20 L13 32"/><path d="M19 9h14M19 20h10M19 31h14M19 9v22"/></svg>
       <span class="wordmark-text"><span class="wordmark-name">Term by Term</span><span class="wordmark-sub">Notes from my BSIT classes</span></span>
     </a>
+    <!-- Main navigation for wide screens. aria-current marks the page you are on. -->
     <nav class="site-nav" aria-label="Main">
       <a href="index.html">Home</a>
       <a href="articles.html" aria-current="page">Articles</a>
       <a href="about.html">About</a>
       <a href="about.html#contact">Contact</a>
     </nav>
+    <!-- Hamburger button for phones. menu.js opens the drawer below and keeps aria-expanded in step. -->
     <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-drawer" aria-label="Open menu">
       <span class="bar"></span><span class="bar"></span><span class="bar"></span>
     </button>
@@ -61,16 +66,20 @@ Date           Description                      Programmer name
     <a href="about.html#contact">Contact</a>
   </nav>
 </div>
+<!-- Main content. The skip link above jumps here. -->
 <main id="main">
 <div class="container">
   <div class="article-layout">
+    <!-- Article heading: breadcrumb, title, subject and term, and the coursework the article is based on. -->
     <header class="article-head">
       <a class="crumb" href="articles.html">All articles</a>
       <h1 class="article-title">My first pull request, and the branch I left unmerged</h1>
       <p class="article-meta">MOBPROG &middot; Year 2, Term 2 &middot; 2 min read</p>
       <p class="article-source">Based on: MOBPROG 1.1 Introduction and 1.2 Branches, Git and GitHub for Poets, submitted 2026-11-06</p>
     </header>
+    <!-- Cover image, served at two sizes through srcset. -->
     <div class="article-cover"><img src="images/cover-first-pull-request-800.webp" srcset="images/cover-first-pull-request-400.webp 400w, images/cover-first-pull-request-800.webp 800w" sizes="(min-width: 60em) 44rem, 100vw" width="800" height="500" alt="My GitHub Branches page for the My-Poem repository: main, third-stanza with pull request #1, and alternate-ending" decoding="async"></div>
+    <!-- Article text. -->
     <article class="article-body prose">
 <p>The Git and GitHub for Poets tutorials ask you to make a repository and then branches, using a poem as the content. I created a public repository named <code>My-Poem</code> and made three commits on <code>main</code>.</p>
 <figure class="figure"><img src="images/fig-first-pull-request-1-1280.webp" srcset="images/fig-first-pull-request-1-720.webp 720w, images/fig-first-pull-request-1-1280.webp 1280w" sizes="(min-width: 60em) 44rem, 100vw" width="1280" height="560" alt="My GitHub commit list for the My-Poem repository: Initial commit, Add first draft of the poem, and Add second stanza to the poem" loading="lazy" decoding="async"><figcaption>The three commits on main, from my My-Poem repository.</figcaption></figure>
@@ -85,7 +94,9 @@ Date           Description                      Programmer name
 <p>A public repository can be opened by anyone, including the instructor. Before the first push I checked the tracked files for tokens and <code>.env</code> files. After it, I opened the repository while logged out to confirm it loads without a login.</p>
 <aside class="note"><p class="note-title">Takeaway</p><p>A public repository is part of what gets graded, so I treat it like a deliverable: check what is tracked, then open it logged out.</p></aside>
     </article>
+    <!-- Links to the previous and next article. -->
     <nav class="article-pager" aria-label="More articles"><div class="pager"><a class="pager-link" href="flexbox-recipes-i-kept-reusing.html"><span class="pager-dir">Newer article</span><span class="pager-title">Four Flexbox recipes I kept reusing</span></a><a class="pager-link" href="a-payment-means-exactly-one.html"><span class="pager-dir">Older article</span><span class="pager-title">In my ERD, &quot;a PAYMENT&quot; meant exactly one</span></a></div></nav>
+    <!-- Course map: every term and subject. Filled tiles link to an article, empty ones are still to come. -->
     <aside class="map" aria-labelledby="map-title-article">
   <h2 class="map-title" id="map-title-article">Course map</h2>
   <p class="map-lede">Filled subjects link to an article. Empty ones are still to come.</p>
@@ -95,6 +106,7 @@ Date           Description                      Programmer name
   </div>
 </div>
 </main>
+<!-- Site footer: blog blurb, page links and contact links. -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-columns">

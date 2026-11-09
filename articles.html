@@ -9,6 +9,7 @@ Date           Description                      Programmer name
 ======================================================================
 11/08/2026     Initial Implementation           EPPE
 11/09/2026     Added header and comments        EPPE with Claude
+11/09/2026     Added section comments           EPPE with Claude
 ======================================================================
 -->
 <html lang="en">
@@ -25,18 +26,22 @@ Date           Description                      Programmer name
 <script src="menu.js" defer></script>
 </head>
 <body>
+<!-- Skip link: lets keyboard users jump past the header straight to the main content. -->
 <a class="skip-link" href="#main">Skip to the content</a>
+<!-- Site header: logo, main navigation and the hamburger button used on phones. -->
 <header class="site-header">
   <div class="header-inner">
     <a class="wordmark" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M13 8 L5 20 L13 32"/><path d="M19 9h14M19 20h10M19 31h14M19 9v22"/></svg>
       <span class="wordmark-text"><span class="wordmark-name">Term by Term</span><span class="wordmark-sub">Notes from my BSIT classes</span></span>
     </a>
+    <!-- Main navigation for wide screens. aria-current marks the page you are on. -->
     <nav class="site-nav" aria-label="Main">
       <a href="index.html">Home</a>
       <a href="articles.html" aria-current="page">Articles</a>
       <a href="about.html">About</a>
       <a href="about.html#contact">Contact</a>
     </nav>
+    <!-- Hamburger button for phones. menu.js opens the drawer below and keeps aria-expanded in step. -->
     <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-drawer" aria-label="Open menu">
       <span class="bar"></span><span class="bar"></span><span class="bar"></span>
     </button>
@@ -60,12 +65,15 @@ Date           Description                      Programmer name
     <a href="about.html#contact">Contact</a>
   </nav>
 </div>
+<!-- Main content. The skip link above jumps here. -->
 <main id="main">
 <div class="container">
+  <!-- Page heading. -->
   <header class="page-head">
     <h1 class="page-title">All articles</h1>
     <p class="page-lede">Ten articles, five from each of my last two terms. Every one names the work it came from.</p>
   </header>
+  <!-- Year 2, Term 2: its five articles. -->
   <section class="term-block" aria-labelledby="t-y2t2">
   <h2 class="term-label" id="t-y2t2"><span class="term-year">Year 2</span>Term 2<span class="term-count">5 articles</span></h2>
   <div class="card-grid"><article id="subject-webprog" class="card card--wide">
@@ -155,6 +163,7 @@ Date           Description                      Programmer name
 </section>
 </div>
 </main>
+<!-- Site footer: blog blurb, page links and contact links. -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-columns">

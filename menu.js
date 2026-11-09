@@ -11,6 +11,7 @@ Date           Description                      Programmer name
 ======================================================================
 11/08/2026     Initial Implementation           EPPE
 11/09/2026     Added header and comment         EPPE with Claude
+11/09/2026     Added function comments          EPPE with Claude
 ======================================================================
 */
 
@@ -27,10 +28,13 @@ Date           Description                      Programmer name
   if (!toggle || !drawer || !shade) { return; }
   var root = document.documentElement;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  /* Pending timer that hides the drawer after its slide-out. Cleared if the menu reopens first. */
   var hideTimer = null;
 
+  /* True while the drawer is open. aria-expanded on the button is the single source of truth. */
   function isOpen() { return toggle.getAttribute('aria-expanded') === 'true'; }
 
+  /* Links and buttons inside the drawer that can take focus, for the Tab trap. Hidden ones are skipped. */
   function focusables() {
     var all = drawer.querySelectorAll('a[href], button:not([disabled])');
     var out = [];
@@ -40,6 +44,7 @@ Date           Description                      Programmer name
     return out;
   }
 
+  /* Shows the drawer and the dimmed page, then moves focus to the first link. */
   function open() {
     clearTimeout(hideTimer);
     drawer.hidden = false;
@@ -54,6 +59,7 @@ Date           Description                      Programmer name
     if (first) { first.focus(); }
   }
 
+  /* Starts the slide-out and hides the drawer when it ends. returnFocus sends focus back to the hamburger button. */
   function close(returnFocus) {
     if (!isOpen()) { return; }
     drawer.classList.remove('is-open');
@@ -67,10 +73,13 @@ Date           Description                      Programmer name
     if (returnFocus) { toggle.focus(); }
   }
 
+  /* The hamburger button opens the drawer, or closes it if it is already open. */
   toggle.addEventListener('click', function () {
     if (isOpen()) { close(true); } else { open(); }
   });
+  /* Clicking the dimmed page closes the drawer. */
   shade.addEventListener('click', function () { close(true); });
+  /* The close button and any link inside the drawer close it. */
   drawer.addEventListener('click', function (e) {
     if (e.target.closest('[data-drawer-close]')) { close(true); return; }
     var link = e.target.closest('a[href]');
@@ -78,6 +87,7 @@ Date           Description                      Programmer name
     if (link) { close(link.getAttribute('href').indexOf('#') < 0); }
   });
 
+  /* While the drawer is open, Escape closes it and Tab cycles inside it. */
   document.addEventListener('keydown', function (e) {
     if (!isOpen()) { return; }
     if (e.key === 'Escape') { e.preventDefault(); close(true); return; }

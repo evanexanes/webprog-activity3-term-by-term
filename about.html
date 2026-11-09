@@ -10,6 +10,7 @@ Date           Description                      Programmer name
 ======================================================================
 11/08/2026     Initial Implementation           EPPE
 11/09/2026     Added header and comments        EPPE with Claude
+11/09/2026     Added section comments           EPPE with Claude
 ======================================================================
 -->
 <html lang="en">
@@ -26,18 +27,22 @@ Date           Description                      Programmer name
 <script src="menu.js" defer></script>
 </head>
 <body>
+<!-- Skip link: lets keyboard users jump past the header straight to the main content. -->
 <a class="skip-link" href="#main">Skip to the content</a>
+<!-- Site header: logo, main navigation and the hamburger button used on phones. -->
 <header class="site-header">
   <div class="header-inner">
     <a class="wordmark" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M13 8 L5 20 L13 32"/><path d="M19 9h14M19 20h10M19 31h14M19 9v22"/></svg>
       <span class="wordmark-text"><span class="wordmark-name">Term by Term</span><span class="wordmark-sub">Notes from my BSIT classes</span></span>
     </a>
+    <!-- Main navigation for wide screens. aria-current marks the page you are on. -->
     <nav class="site-nav" aria-label="Main">
       <a href="index.html">Home</a>
       <a href="articles.html">Articles</a>
       <a href="about.html" aria-current="page">About</a>
       <a href="about.html#contact">Contact</a>
     </nav>
+    <!-- Hamburger button for phones. menu.js opens the drawer below and keeps aria-expanded in step. -->
     <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-drawer" aria-label="Open menu">
       <span class="bar"></span><span class="bar"></span><span class="bar"></span>
     </button>
@@ -61,9 +66,12 @@ Date           Description                      Programmer name
     <a href="about.html#contact">Contact</a>
   </nav>
 </div>
+<!-- Main content. The skip link above jumps here. -->
 <main id="main">
 <div class="container">
+  <!-- About layout: text on one side, portrait, contact details and artwork on the other. -->
   <div class="about-grid">
+    <!-- Who writes the blog, where the articles come from and why the site exists. -->
     <div class="about-copy">
       <h1 class="page-title">About this blog</h1>
       <p><strong>Term by Term</strong> is written by Evan Exanes, a second-year BSIT student at Asia Pacific College, section IT252, graduating in 2029.</p>
@@ -75,6 +83,7 @@ Date           Description                      Programmer name
     </div>
     <div class="about-side">
       <img class="portrait" src="images/evan-exanes-portrait-640.webp" srcset="images/evan-exanes-portrait-320.webp 320w, images/evan-exanes-portrait-640.webp 640w" sizes="(min-width: 60em) 23rem, min(20rem, calc(100vw - 32px))" width="640" height="800" decoding="async" alt="Portrait of Evan Exanes, smiling, in a dark blazer and white shirt">
+      <!-- Contact details. The Contact links in the menu jump to this id. -->
       <div class="contact-card" id="contact">
         <h2>Contact</h2>
         <div class="contact-row"><span class="contact-label">School email</span><a href="mailto:epexanes@student.apc.edu.ph">epexanes@student.apc.edu.ph</a></div>
@@ -86,6 +95,7 @@ Date           Description                      Programmer name
   </div>
 </div>
 <div class="container">
+  <!-- The program so far: the full course map, every term. -->
   <section class="full-map" aria-labelledby="program-title">
     <div class="section-head">
       <h2 class="section-title" id="program-title">The program so far</h2>
@@ -95,6 +105,7 @@ Date           Description                      Programmer name
   </section>
 </div>
 </main>
+<!-- Site footer: blog blurb, page links and contact links. -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-columns">

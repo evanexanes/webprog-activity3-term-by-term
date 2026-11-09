@@ -11,6 +11,7 @@ Date           Description                      Programmer name
 ======================================================================
 11/08/2026     Initial Implementation           EPPE
 11/09/2026     Added header and comments        EPPE with Claude
+11/09/2026     Added section comments           EPPE with Claude
 ======================================================================
 -->
 <html lang="en">
@@ -27,18 +28,22 @@ Date           Description                      Programmer name
 <script src="menu.js" defer></script>
 </head>
 <body>
+<!-- Skip link: lets keyboard users jump past the header straight to the main content. -->
 <a class="skip-link" href="#main">Skip to the content</a>
+<!-- Site header: logo, main navigation and the hamburger button used on phones. -->
 <header class="site-header">
   <div class="header-inner">
     <a class="wordmark" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M13 8 L5 20 L13 32"/><path d="M19 9h14M19 20h10M19 31h14M19 9v22"/></svg>
       <span class="wordmark-text"><span class="wordmark-name">Term by Term</span><span class="wordmark-sub">Notes from my BSIT classes</span></span>
     </a>
+    <!-- Main navigation for wide screens. aria-current marks the page you are on. -->
     <nav class="site-nav" aria-label="Main">
       <a href="index.html">Home</a>
       <a href="articles.html" aria-current="page">Articles</a>
       <a href="about.html">About</a>
       <a href="about.html#contact">Contact</a>
     </nav>
+    <!-- Hamburger button for phones. menu.js opens the drawer below and keeps aria-expanded in step. -->
     <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-drawer" aria-label="Open menu">
       <span class="bar"></span><span class="bar"></span><span class="bar"></span>
     </button>
@@ -62,16 +67,20 @@ Date           Description                      Programmer name
     <a href="about.html#contact">Contact</a>
   </nav>
 </div>
+<!-- Main content. The skip link above jumps here. -->
 <main id="main">
 <div class="container">
   <div class="article-layout">
+    <!-- Article heading: breadcrumb, title, subject and term, and the coursework the article is based on. -->
     <header class="article-head">
       <a class="crumb" href="articles.html">All articles</a>
       <h1 class="article-title">In my ERD, &quot;a PAYMENT&quot; meant exactly one</h1>
       <p class="article-meta">DATAMA2 &middot; Year 2, Term 2 &middot; 2 min read</p>
       <p class="article-source">Based on: DATAMA2 Activity 1, ERD and data dictionary, submitted 2026-11-06</p>
     </header>
+    <!-- Cover image, served at two sizes through srcset. -->
     <div class="article-cover"><img src="images/cover-a-payment-means-exactly-one-800.webp" srcset="images/cover-a-payment-means-exactly-one-400.webp 400w, images/cover-a-payment-means-exactly-one-800.webp 800w" sizes="(min-width: 60em) 44rem, 100vw" width="800" height="500" alt="Detail of my DATAMA2 entity relationship diagram showing the PAYMENT and CUSTOMER tables" decoding="async"></div>
+    <!-- Article text. -->
     <article class="article-body prose">
 <p>DATAMA2 Activity 1 gave four business rules about customers, orders and payments, an attribute list for each entity, and one tool: MySQL Workbench. The deliverable was a Crow&#x27;s Foot model plus a data dictionary, saved as a PDF.</p>
 <h2>Reading the grammar</h2>
@@ -84,7 +93,9 @@ Date           Description                      Programmer name
 <p>ORDER is an SQL reserved word. I kept the name from the brief and quoted it in the script with backticks.</p>
 <aside class="note"><p class="note-title">Still open</p><p>If rule 4 was meant as many-to-many, the model needs a customer-payment bridge table. Choosing the industry first (I picked a retail store with delivery orders) would have settled the examples earlier.</p></aside>
     </article>
+    <!-- Links to the previous and next article. -->
     <nav class="article-pager" aria-label="More articles"><div class="pager"><a class="pager-link" href="first-pull-request.html"><span class="pager-dir">Newer article</span><span class="pager-title">My first pull request, and the branch I left unmerged</span></a><a class="pager-link" href="one-fact-per-field.html"><span class="pager-dir">Older article</span><span class="pager-title">One fact per field, one fact per row</span></a></div></nav>
+    <!-- Course map: every term and subject. Filled tiles link to an article, empty ones are still to come. -->
     <aside class="map" aria-labelledby="map-title-article">
   <h2 class="map-title" id="map-title-article">Course map</h2>
   <p class="map-lede">Filled subjects link to an article. Empty ones are still to come.</p>
@@ -94,6 +105,7 @@ Date           Description                      Programmer name
   </div>
 </div>
 </main>
+<!-- Site footer: blog blurb, page links and contact links. -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-columns">
