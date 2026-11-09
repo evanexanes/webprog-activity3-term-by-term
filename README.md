@@ -18,3 +18,6 @@ Cream canvas, black Outfit headings, hairline rules and the denim gradient used 
 No build step and no framework. Download the folder and open `index.html` in a browser. Keep `fonts/` and `images/` next to the HTML files, because the pages load them by relative path.
 
 Outfit and Inter are bundled in `fonts/` (both under the SIL Open Font License), so the pages make no network requests. The only script is `menu.js`, the phone menu.
+
+## Source file headers
+Every HTML, CSS and JavaScript file opens with a header block: program name, description, author, date compiled and a change history. A commit that changes a file adds a row to its history.

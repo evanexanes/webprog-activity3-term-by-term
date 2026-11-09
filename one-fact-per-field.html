@@ -1,4 +1,17 @@
 <!doctype html>
+<!--
+Program name: one-fact-per-field.html
+Description: Article page of the Term by Term blog. Five kinds of dirty data, and
+   the one rule each of them breaks.
+Author: Exanes, Evan Prens
+Date Compiled: 11/08/2026
+======================================================================
+Date           Description                      Programmer name
+======================================================================
+11/08/2026     Initial Implementation           EPPE
+11/09/2026     Added header and comments        EPPE
+======================================================================
+-->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -8,6 +21,7 @@
 <meta name="description" content="Five kinds of dirty data, and the one rule each of them breaks.">
 <link rel="icon" href="images/logo-mark.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
+<!-- Marks the page as script-enabled before first paint, so the CSS swaps the header links for the hamburger only when menu.js will run. -->
 <script>document.documentElement.classList.add("js")</script>
 <script src="menu.js" defer></script>
 </head>
@@ -29,6 +43,7 @@
     </button>
   </div>
 </header>
+<!-- Phone menu markup. Both elements start hidden and menu.js opens them. -->
 <div class="drawer-shade" id="drawer-shade" hidden></div>
 <div class="site-drawer" id="site-drawer" role="dialog" aria-modal="true" aria-label="Menu" hidden>
   <div class="drawer-top">

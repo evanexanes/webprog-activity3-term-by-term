@@ -1,3 +1,18 @@
+/*
+Program name: style.css
+Description: Single stylesheet for the Term by Term blog. Mobile-first CSS Grid
+   layouts: one column on a phone, two at tablet width and the full grid from 960
+   px. Also styles the phone drawer, the articles and the course map.
+Author: Exanes, Evan Prens
+Date Compiled: 11/08/2026
+======================================================================
+Date           Description                      Programmer name
+======================================================================
+11/08/2026     Initial Implementation           EPPE
+11/09/2026     Added file header                EPPE
+======================================================================
+*/
+
 /* ==========================================================================
    Term by Term: WEBPROG Activity 3 (CSS - Grid and Mobile)
    Evan Exanes, BSIT IT252, Asia Pacific College
