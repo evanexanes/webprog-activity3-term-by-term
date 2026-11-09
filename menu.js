@@ -1,3 +1,19 @@
+/*
+Program name: menu.js
+Description: Phone menu for Term by Term. Below 40em the hamburger opens a side
+   drawer that traps focus and closes on Escape, the close button, the dimmed page
+   or any link, then returns focus to the hamburger. Without the script the header
+   links stay visible.
+Author: Exanes, Evan Prens
+Date Compiled: 11/08/2026
+======================================================================
+Date           Description                      Programmer name
+======================================================================
+11/08/2026     Initial Implementation           EPPE
+11/09/2026     Added header and comment         EPPE with Claude
+======================================================================
+*/
+
 /* Term by Term: the phone menu.
    Below 40em the hamburger opens a side drawer with the four links. Focus moves into the
    drawer and stays there; Escape, the close button, the dimmed page and any link close it,
@@ -45,6 +61,7 @@
     root.classList.remove('drawer-open');
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Open menu');
+    /* 260 ms matches the slide transition in style.css. The drawer is hidden once it ends. */
     hideTimer = setTimeout(function () { drawer.hidden = true; shade.hidden = true; },
                            reduce.matches ? 0 : 260);
     if (returnFocus) { toggle.focus(); }
