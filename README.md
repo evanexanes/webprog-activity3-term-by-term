@@ -16,7 +16,13 @@
 
 </div>
 
+## What this shows
+- A 13-page blog about second-year BSIT work, built with HTML, CSS Grid and one small menu script.
+- Layouts start at 320 px, and the phone menu drawer traps focus and closes on Escape. With JavaScript off, the links stay in the header.
+- Every article starts from work I handed in and says which.
+
 ## Contents
+- [What this shows](#what-this-shows)
 - [About](#about)
 - [What the activity asked for](#what-the-activity-asked-for)
 - [Design](#design)
@@ -44,4 +50,4 @@ Outfit and Inter are bundled in `fonts/`, both under the SIL Open Font License, 
 The code and article text are released under the [MIT License](LICENSE).
 
 ## Author
-**Evan Prens P. Exanes** · [GitHub](https://github.com/evanexanes) · [Portfolio](https://evanexanes.github.io/)
+**Evan Prens P. Exanes** · [GitHub](https://github.com/evanexanes) · [Portfolio](https://evanexanes.github.io/) · [Contact](https://evanexanes.github.io/07-contact.html)
